@@ -3,280 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Your Free Clarity Call &mdash; Impact</title>
+<title>Book Your Clarity Call &mdash; Impact</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --purple: oklch(0.47 0.31 278);
-  --yellow: #FAD825;
-  --green: #1BEBA0;
-  --font: 'Inter', -apple-system, sans-serif;
-  --radius-md: 14px; --radius-lg: 20px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+:root{--f:'Inter',-apple-system,sans-serif;--y:#FAD825;--g:#1BEBA0;--p:#7c3aed;--r:16px}
+body{font-family:var(--f);overflow-x:hidden;background:#F5F4EE}
+.hero{
+  background:linear-gradient(160deg,#1e1040 0%,#160d3a 50%,#0f0a2e 100%);
+  position:relative;overflow:hidden;
 }
-html { -webkit-font-smoothing: antialiased; }
-body { font-family: var(--font); background: #F5F4EE; overflow-x: hidden; }
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 65% -20%,rgba(124,58,237,0.40) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at -10% 80%,rgba(49,46,129,0.25) 0%,transparent 55%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 20%,transparent 100%)}
+nav{position:relative;z-index:5;padding:22px 32px;display:flex;justify-content:center}
+nav img{height:28px;filter:brightness(0) invert(1)}
+.hero-inner{position:relative;z-index:5;max-width:640px;margin:0 auto;padding:16px 20px 52px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(27,235,160,0.12);border:1px solid rgba(27,235,160,0.28);border-radius:100px;padding:7px 16px;font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--g);margin-bottom:22px}
+h1{font-size:clamp(28px,5.5vw,46px);font-weight:900;line-height:1.08;letter-spacing:-0.03em;color:#fff;margin-bottom:14px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--y),#f9a825,var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:16px;color:rgba(255,255,255,0.58);line-height:1.65}
 
-.header-dark {
-  background: linear-gradient(160deg, oklch(0.28 0.22 285) 0%, oklch(0.18 0.14 290) 100%);
-  position: relative; overflow: hidden;
-}
-.header-dark::after {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 60% -20%, oklch(0.55 0.30 275 / 0.25) 0%, transparent 60%);
-  pointer-events: none;
-}
-nav { position: relative; z-index: 5; padding: 22px 24px; display: flex; justify-content: center; }
-nav img { height: 28px; }
+/* CALENDLY */
+.section{padding:72px 24px}
+.s-w{background:#fff}.s-o{background:#F5F4EE}.s-d{background:linear-gradient(160deg,#1a0f40 0%,#0f0a2e 100%)}
+.wrap{max-width:720px;margin:0 auto}
+.lbl{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--p);margin-bottom:10px}
+.lbl-g{color:rgba(250,216,37,0.75)}
+.ttl{font-size:clamp(22px,4vw,32px);font-weight:900;line-height:1.12;letter-spacing:-0.022em;color:#0D0D0D;margin-bottom:10px}
+.ttl-w{color:#fff}
+.body{font-size:16px;color:#666;line-height:1.70;margin-bottom:32px}
+.body-w{color:rgba(255,255,255,0.55)}
 
-.hero-top { position: relative; z-index: 5; max-width: 640px; margin: 0 auto; padding: 16px 24px 52px; text-align: center; }
-.badge {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: rgba(27,235,160,0.15); border: 1px solid rgba(27,235,160,0.30);
-  border-radius: 100px; padding: 7px 16px;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--green); margin-bottom: 22px;
-}
-.hero-headline {
-  font-size: clamp(28px, 5vw, 44px); font-weight: 900; line-height: 1.10;
-  letter-spacing: -0.025em; color: white; margin-bottom: 14px;
-}
-.hero-headline em { color: var(--yellow); font-style: normal; }
-.hero-sub { font-size: 16px; color: rgba(255,255,255,0.60); line-height: 1.65; }
+.cal-block{border:2px dashed rgba(124,58,237,0.22);border-radius:20px;min-height:480px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:48px 24px;text-align:center}
+.cal-ic{width:56px;height:56px;background:var(--p);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 24px rgba(124,58,237,0.30)}
+.cal-t{font-size:17px;font-weight:800;color:var(--p)}
+.cal-s{font-size:13px;color:#999;max-width:300px;line-height:1.5}
 
-/* CALENDLY SECTION */
-.calendly-section { background: white; padding: 64px 24px; }
-.inner { max-width: 720px; margin: 0 auto; }
-.calendly-block {
-  border: 2px dashed rgba(97,0,255,0.20);
-  border-radius: var(--radius-lg);
-  min-height: 480px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
-  padding: 48px 32px; text-align: center;
-}
-.cal-icon {
-  width: 56px; height: 56px;
-  background: oklch(0.47 0.31 278);
-  border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  color: white; box-shadow: 0 8px 24px oklch(0.47 0.31 278 / 0.35);
-}
-.cal-title { font-size: 18px; font-weight: 800; color: oklch(0.47 0.31 278); }
-.cal-sub { font-size: 13px; color: #999; max-width: 300px; line-height: 1.5; }
+/* Expect */
+.el{display:flex;flex-direction:column;gap:14px}
+.ei{background:#fff;border-radius:var(--r);padding:20px 22px;border-left:3px solid var(--p);box-shadow:0 2px 10px rgba(0,0,0,0.05);display:flex;gap:16px;align-items:flex-start;transition:all 0.22s;cursor:default}
+.ei.green{border-left-color:var(--g)}
+.ei:hover{transform:translateX(5px);box-shadow:0 6px 20px rgba(124,58,237,0.10)}
+.en{width:30px;height:30px;border-radius:50%;background:var(--p);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.en.g{background:var(--g);color:#0D0D0D}
+.et{font-size:15px;font-weight:800;color:#111;margin-bottom:4px}
+.eb{font-size:13px;color:#777;line-height:1.6}
 
-/* WHAT TO EXPECT */
-.expect-section { background: #F5F4EE; padding: 72px 24px; }
-.section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.47 0.31 278); margin-bottom: 12px; }
-.section-title { font-size: clamp(22px, 4vw, 32px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: #0D0D0D; margin-bottom: 36px; }
-.expect-list { display: flex; flex-direction: column; gap: 14px; }
-.expect-item {
-  background: white; border-radius: var(--radius-md);
-  padding: 20px 22px;
-  border-left: 3px solid oklch(0.47 0.31 278);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  display: flex; gap: 16px; align-items: flex-start;
-  transition: all 0.2s;
-}
-.expect-item:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(97,0,255,0.10); }
-.expect-item.green-border { border-left-color: var(--green); }
-.expect-num {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: oklch(0.47 0.31 278);
-  color: white; font-size: 13px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.expect-num.green { background: var(--green); color: #0D0D0D; }
-.expect-title { font-size: 15px; font-weight: 800; color: #111; margin-bottom: 4px; }
-.expect-body { font-size: 13px; color: #666; line-height: 1.6; }
+/* Qualify */
+.ql{display:flex;flex-direction:column;gap:14px}
+.qc{background:#F5F4EE;border-radius:var(--r);padding:20px 22px;border:1px solid rgba(27,235,160,0.25);display:flex;gap:14px;align-items:flex-start;transition:all 0.22s;cursor:default}
+.qc:hover{box-shadow:0 8px 24px rgba(27,235,160,0.12);transform:translateY(-2px)}
+.ck{width:28px;height:28px;border-radius:50%;background:var(--g);color:#0D0D0D;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:900}
+.qt{font-size:15px;font-weight:800;color:#111;margin-bottom:4px}
+.qb{font-size:13px;color:#777;line-height:1.6}
 
-/* FOR YOU IF */
-.qualify-section { background: white; padding: 72px 24px; }
-.qualify-list { display: flex; flex-direction: column; gap: 14px; }
-.qualify-card {
-  background: #F5F4EE; border-radius: var(--radius-md);
-  padding: 20px 22px;
-  display: flex; gap: 14px; align-items: flex-start;
-  border: 1px solid rgba(27,235,160,0.25);
-  transition: all 0.2s;
-}
-.qualify-card:hover { box-shadow: 0 6px 20px rgba(27,235,160,0.12); transform: translateY(-2px); }
-.check-icon {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--green); color: #0D0D0D;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: 14px; font-weight: 900;
-}
-.qualify-title { font-size: 15px; font-weight: 800; color: #111; margin-bottom: 4px; }
-.qualify-body { font-size: 13px; color: #666; line-height: 1.6; }
+/* Proof */
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.pc{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:var(--r);padding:22px;transition:all 0.22s}
+.pc:hover{background:rgba(255,255,255,0.09);transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,0.25)}
+.pq{font-size:13px;color:rgba(255,255,255,0.78);line-height:1.70;font-style:italic;margin-bottom:14px}
+.pn{font-size:13px;font-weight:700;color:#fff}
+.pc2{font-size:11px;color:rgba(255,255,255,0.32);margin-top:3px;line-height:1.4}
 
-/* TESTIMONIALS */
-.proof-section {
-  background: linear-gradient(160deg, oklch(0.28 0.22 285) 0%, oklch(0.16 0.12 290) 100%);
-  padding: 72px 24px;
-}
-.proof-title { font-size: clamp(22px, 4vw, 30px); font-weight: 900; color: white; letter-spacing: -0.02em; margin-bottom: 10px; }
-.proof-sub { font-size: 14px; color: rgba(255,255,255,0.50); margin-bottom: 36px; }
-.proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 14px; }
-.proof-card {
-  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius-md); padding: 22px; transition: all 0.2s;
-}
-.proof-card:hover { background: rgba(255,255,255,0.10); transform: translateY(-2px); }
-.proof-quote { font-size: 13px; color: rgba(255,255,255,0.80); line-height: 1.65; font-style: italic; margin-bottom: 14px; }
-.proof-author { font-size: 13px; font-weight: 700; color: white; }
-.proof-context { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 3px; line-height: 1.4; }
+/* About card */
+.about{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:20px;padding:28px;margin-top:40px}
+.ab-lbl{font-size:10px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--y);margin-bottom:10px}
+.ab-t{font-size:19px;font-weight:900;color:#fff;margin-bottom:12px}
+.ab-b{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.70}
+.ab-b p{margin-bottom:10px}.ab-b p:last-child{margin-bottom:0}
 
-/* ABOUT */
-.about-card {
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius-lg); padding: 28px; margin-top: 40px;
-}
-.about-label { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
-.about-title { font-size: 20px; font-weight: 900; color: white; margin-bottom: 14px; }
-.about-body { font-size: 14px; color: rgba(255,255,255,0.68); line-height: 1.7; }
-.about-body p { margin-bottom: 10px; }
-.about-body p:last-child { margin-bottom: 0; }
-
-footer { background: #0D0D0D; padding: 28px 24px; text-align: center; }
-footer img { height: 22px; opacity: 0.35; margin-bottom: 12px; display: block; margin-left: auto; margin-right: auto; }
-footer p { font-size: 11px; color: rgba(255,255,255,0.25); line-height: 1.6; max-width: 580px; margin: 0 auto; }
-
-@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-.anim-1 { animation: fadeUp 0.55s ease-out both; }
-.anim-2 { animation: fadeUp 0.55s 0.10s ease-out both; }
-.anim-3 { animation: fadeUp 0.55s 0.20s ease-out both; }
+footer{background:#0a0720;padding:28px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+footer img{height:22px;opacity:0.28;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;filter:brightness(0) invert(1)}
+footer p{font-size:11px;color:rgba(255,255,255,0.22);line-height:1.65;max-width:600px;margin:0 auto}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.a1{animation:fadeUp 0.55s ease-out both}.a2{animation:fadeUp 0.55s 0.10s ease-out both}.a3{animation:fadeUp 0.55s 0.20s ease-out both}
 </style>
 </head>
 <body>
-
-<div class="header-dark">
+<div class="hero">
+  <div class="hero-grid"></div>
   <nav><img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact"></nav>
-  <div class="hero-top">
-    <div class="anim-1">
-      <div class="badge">
-        <i data-lucide="check-circle" style="width:13px;height:13px;"></i>
-        Application Received &mdash; Next Step
-      </div>
-    </div>
-    <h1 class="hero-headline anim-2">
-      You're One Step Away From Knowing<br>
-      <em>Exactly What's Holding You Back</em>
-    </h1>
-    <p class="hero-sub anim-3">Pick a time below that works for you. This call is free, focused, and built around your specific situation &mdash; not a generic script.</p>
+  <div class="hero-inner">
+    <div class="a1"><div class="badge"><i data-lucide="check-circle" style="width:13px;height:13px;"></i> Application Received &mdash; Next Step</div></div>
+    <h1 class="a2">You&rsquo;re One Step Away From Knowing<br><em>Exactly What&rsquo;s Holding You Back</em></h1>
+    <p class="sub a3">Pick a time below. Free, focused, and built around your specific situation &mdash; not a generic script.</p>
   </div>
 </div>
 
-<!-- CALENDLY -->
-<section class="calendly-section">
-  <div class="inner">
-    <div class="calendly-block">
-      <div class="cal-icon">
-        <i data-lucide="calendar" style="width:24px;height:24px;"></i>
-      </div>
-      <p class="cal-title">[ CALENDLY_EMBED_PLACEHOLDER ]</p>
-      <p class="cal-sub">Replace this block with your Calendly inline embed. Recommended min-height: 700px, full width.</p>
+<section class="section s-w">
+  <div class="wrap">
+    <p class="lbl">Schedule your call</p>
+    <h2 class="ttl" style="margin-bottom:28px">Pick a time that works for you:</h2>
+    <div class="cal-block">
+      <div class="cal-ic"><i data-lucide="calendar" style="width:26px;height:26px;"></i></div>
+      <p class="cal-t">[ CALENDLY_EMBED_PLACEHOLDER ]</p>
+      <p class="cal-s">Replace with your Calendly inline embed. Recommended: full-width, min-height 700px.</p>
     </div>
   </div>
 </section>
 
-<!-- WHAT TO EXPECT -->
-<section class="expect-section">
-  <div class="inner">
-    <p class="section-label">What happens on the call</p>
-    <h2 class="section-title">Here's exactly what happens:</h2>
-    <div class="expect-list">
-      <div class="expect-item">
-        <div class="expect-num">1</div>
-        <div>
-          <p class="expect-title">We start with where you are right now</p>
-          <p class="expect-body">Your income, your audience, your niche, your current offers &mdash; or lack of them. No judgment. Just an honest look at your starting point so we can give you a useful answer.</p>
-        </div>
-      </div>
-      <div class="expect-item">
-        <div class="expect-num">2</div>
-        <div>
-          <p class="expect-title">We identify the #1 thing standing between you and a sustainable income</p>
-          <p class="expect-body">Not a list of 20 things to fix. One thing. The real constraint &mdash; whether that's your positioning, your content, your pricing, or something else entirely.</p>
-        </div>
-      </div>
-      <div class="expect-item">
-        <div class="expect-num">3</div>
-        <div>
-          <p class="expect-title">We walk you through Hybrid Coaching for your specific situation</p>
-          <p class="expect-body">Not a one-size-fits-all plan. A real conversation about your niche, your goals, and whether the system makes sense for where you are right now.</p>
-        </div>
-      </div>
-      <div class="expect-item green-border">
-        <div class="expect-num green">&#10003;</div>
-        <div>
-          <p class="expect-title">You leave with clarity &mdash; whether you join us or not</p>
-          <p class="expect-body">We mean this. If Impact Academy isn't the right fit, we'll tell you. The goal of this call is not to sell you something. It's to give you a clear picture of your next move.</p>
-        </div>
-      </div>
+<section class="section s-o">
+  <div class="wrap">
+    <p class="lbl">What to expect</p>
+    <h2 class="ttl">Here&rsquo;s exactly what happens on the call:</h2>
+    <div class="el">
+      <div class="ei"><div class="en">1</div><div><p class="et">We start with where you are right now</p><p class="eb">Your income, your audience, your niche, your current offers &mdash; or lack of them. No judgment. Just an honest look at your starting point so we can give you a useful answer.</p></div></div>
+      <div class="ei"><div class="en">2</div><div><p class="et">We identify the #1 thing between you and sustainable income</p><p class="eb">Not a list of 20 things to fix. One thing. The real constraint &mdash; whether that&rsquo;s positioning, content, pricing, or something else entirely.</p></div></div>
+      <div class="ei"><div class="en">3</div><div><p class="et">We walk you through Hybrid Coaching for your specific situation</p><p class="eb">Not a one-size-fits-all plan. A real conversation about your niche, your goals, and whether the system makes sense for where you are right now.</p></div></div>
+      <div class="ei green"><div class="en g">&#10003;</div><div><p class="et">You leave with clarity &mdash; whether you join or not</p><p class="eb">We mean this. If Impact Academy isn&rsquo;t the right fit, we&rsquo;ll tell you. The goal of this call is not to sell you. It&rsquo;s to give you a clear picture of your next move.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- THIS CALL IS FOR YOU IF -->
-<section class="qualify-section">
-  <div class="inner">
-    <p class="section-label">Qualification</p>
-    <h2 class="section-title">This call is for you if:</h2>
-    <div class="qualify-list">
-      <div class="qualify-card">
-        <div class="check-icon">&#10003;</div>
-        <div>
-          <p class="qualify-title">You're a yoga teacher, coach, or wellness expert whose income doesn't reflect your expertise</p>
-          <p class="qualify-body">You've put in the work. You have real skills, real experience, real results. The income just doesn't reflect it yet &mdash; and you're ready to change that.</p>
-        </div>
-      </div>
-      <div class="qualify-card">
-        <div class="check-icon">&#10003;</div>
-        <div>
-          <p class="qualify-title">You're done trading hours for dollars and ready to build something beyond the mat</p>
-          <p class="qualify-body">You're not looking to work harder. You're looking to work smarter &mdash; to build an online business that creates income from what you already know, without burning out.</p>
-        </div>
-      </div>
-      <div class="qualify-card">
-        <div class="check-icon">&#10003;</div>
-        <div>
-          <p class="qualify-title">You've tried other things that didn't work &mdash; and you're willing to follow a proven system</p>
-          <p class="qualify-body">You've probably bought a course, tried something, and not gotten the results you hoped for. This call is about figuring out WHY &mdash; and whether the Hybrid Coaching system gives you a different path.</p>
-        </div>
-      </div>
+<section class="section s-w">
+  <div class="wrap">
+    <p class="lbl">Qualification</p>
+    <h2 class="ttl">This call is for you if:</h2>
+    <div class="ql">
+      <div class="qc"><div class="ck">&#10003;</div><div><p class="qt">You&rsquo;re a yoga teacher or wellness expert whose income doesn&rsquo;t reflect your expertise</p><p class="qb">You&rsquo;ve put in the work. You have real skills, real results. The income just doesn&rsquo;t reflect it yet &mdash; and you&rsquo;re ready to change that.</p></div></div>
+      <div class="qc"><div class="ck">&#10003;</div><div><p class="qt">You&rsquo;re done trading hours for dollars and ready to build beyond the mat</p><p class="qb">You&rsquo;re not looking to work harder. You&rsquo;re looking to work smarter &mdash; to build an online business from what you already know, without burning out.</p></div></div>
+      <div class="qc"><div class="ck">&#10003;</div><div><p class="qt">You&rsquo;ve tried other things that didn&rsquo;t work &mdash; and you&rsquo;re willing to follow a proven system</p><p class="qb">This call is about figuring out WHY the other things didn&rsquo;t work &mdash; and whether the Hybrid Coaching system gives you a genuinely different path.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF + ABOUT -->
-<section class="proof-section">
-  <div class="inner">
-    <p class="section-label" style="color:rgba(250,216,37,0.75);">What teachers said after their first call</p>
-    <p class="proof-title">Before they became success stories &mdash;</p>
-    <p class="proof-sub">they were exactly where you are right now.</p>
-    <div class="proof-grid">
-      <div class="proof-card">
-        <p class="proof-quote">"Before I booked the call, I was skeptical. Within 20 minutes I understood exactly what I'd been doing wrong. That clarity alone was worth it. Then I went from 1,000 to 14,000 followers and added $5-10K/month over the next 4-6 months."</p>
-        <p class="proof-author">Katrin O.</p>
-        <p class="proof-context">Pre/postnatal yoga &middot; Impact Academy &middot; full program &middot; 4-6 months &middot; starting from 1K followers</p>
-      </div>
-      <div class="proof-card">
-        <p class="proof-quote">"I was two months away from giving up. The call helped me see it wasn't about working harder. It was about working on the right things. I went from $150/month to $17,000+ in sales over 12 months."</p>
-        <p class="proof-author">Jenelle L.</p>
-        <p class="proof-context">Yoga teacher &middot; 12 months &middot; starting from ~$150/month</p>
-      </div>
+<section class="section s-d">
+  <div class="wrap">
+    <p class="lbl lbl-g">Before they became success stories</p>
+    <h2 class="ttl ttl-w" style="margin-bottom:10px">They were exactly where you are right now.</h2>
+    <p class="body body-w">What teachers said after their first call:</p>
+    <div class="pg">
+      <div class="pc"><p class="pq">"Before I booked, I was skeptical. Within 20 minutes I understood exactly what I&rsquo;d been doing wrong. Then: 1K to 14K followers and $5&ndash;10K/month added in 4&ndash;6 months."</p><p class="pn">Katrin O.</p><p class="pc2">Pre/postnatal yoga &middot; Impact Academy &middot; full program &middot; 4-6 months</p></div>
+      <div class="pc"><p class="pq">"I was two months from giving up. The call helped me see it wasn&rsquo;t about working harder. It was about the right things. $150/month to $17,000+ in 12 months."</p><p class="pn">Jenelle L.</p><p class="pc2">Yoga teacher &middot; 12 months &middot; starting from ~$150/month</p></div>
     </div>
-
-    <div class="about-card">
-      <p class="about-label">About Daniel Rama</p>
-      <p class="about-title">The teacher who built the system</p>
-      <div class="about-body">
-        <p>Daniel Rama is a yoga and movement coach who built a 200,000-follower following while still making $500/month.</p>
-        <p>He knows what it's like to love what you do and feel like the money just doesn't come. Years of teaching, building an audience, and wondering why none of it was translating into real income.</p>
-        <p>After partnering with Impact and implementing the Hybrid Coaching system, he now works 15 hours a week, lives in Thailand, and generates $20K+ per month &mdash; while teaching the exact system to yoga teachers inside Impact Academy.</p>
+    <div class="about">
+      <p class="ab-lbl">About Daniel Rama</p>
+      <p class="ab-t">The teacher who built the system</p>
+      <div class="ab-b">
+        <p>Daniel Rama is a yoga and movement coach who built a 200,000-follower following while still making $500/month. He knows exactly what it feels like to love what you do and have the income not reflect it.</p>
+        <p>After partnering with Impact and implementing the Hybrid Coaching system, he now works 15 hours a week, lives in Thailand, and generates $20K+ per month &mdash; while teaching the exact same system to yoga teachers inside Impact Academy.</p>
       </div>
     </div>
   </div>
@@ -284,9 +152,8 @@ footer p { font-size: 11px; color: rgba(255,255,255,0.25); line-height: 1.6; max
 
 <footer>
   <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact">
-  <p>&copy; 2026 Impact Me All. Results vary based on niche, starting point, effort, and time invested. Not a guarantee of income.</p>
+  <p>&copy; 2026 Impact Me All &middot; Results vary by niche, starting point, effort, and time invested. Not a guarantee of income.</p>
 </footer>
-
 <script>lucide.createIcons();</script>
 </body>
 </html>
