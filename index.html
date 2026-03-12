@@ -3,159 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Training for Yoga Teachers - Impact</title>
+<title>Free Training for Yoga Teachers — Impact</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  * { -webkit-font-smoothing: antialiased; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; background: #F5F4EE; }
-  .grad-hero { background: linear-gradient(135deg, #0D0D0D 0%, #1a0533 50%, #0D0D0D 100%); }
-  .grad-purple { background: linear-gradient(135deg, #6100FF 0%, #4a00c4 100%); }
-  .glow-purple { box-shadow: 0 0 30px rgba(97,0,255,0.5), 0 0 60px rgba(97,0,255,0.2); }
-  .glow-purple:hover { box-shadow: 0 0 40px rgba(97,0,255,0.7), 0 0 80px rgba(97,0,255,0.3); }
-  .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-  .glass-light { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(97,0,255,0.1); }
-  .yellow-accent { color: #FAD825; }
-  .green-check { color: #1BEBA0; }
-  input { transition: all 0.2s ease; }
-  input:focus { outline: none; border-color: #6100FF; box-shadow: 0 0 0 3px rgba(97,0,255,0.15); }
-  .btn-cta { transition: all 0.3s ease; transform: translateY(0); }
-  .btn-cta:hover { transform: translateY(-2px); }
-  .proof-card { transition: all 0.3s ease; }
-  .proof-card:hover { transform: translateY(-3px); }
+  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    margin: 0; padding: 0;
+    background: #3D1A8C;
+  }
+  .grad-bg {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 60% 0%, #7B2FFF 0%, #4B0DC8 30%, #2D0A8A 60%, #1A0660 100%);
+  }
+  .glass-form {
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 20px;
+  }
+  .input-field {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.2s;
+    outline: none;
+  }
+  .input-field::placeholder { color: rgba(255,255,255,0.45); }
+  .input-field:focus {
+    border-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.13);
+  }
+  .btn-cta {
+    background: #FAD825;
+    color: #1A1A1A;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-cta:hover {
+    background: #fce44a;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(250,216,37,0.35);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.20);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.80);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .headline-yellow { color: #FAD825; }
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.60);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .stat-dot {
+    width: 6px; height: 6px;
+    background: #FAD825;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .hero-headline { font-size: 32px !important; }
+  }
 </style>
 </head>
 <body>
+<div class="grad-bg">
 
-<!-- HEADER / LOGO -->
-<div class="grad-hero">
-  <div class="max-w-5xl mx-auto px-4 py-5 flex justify-center">
-    <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" class="h-8">
+  <!-- NAV -->
+  <div style="padding: 20px 24px; display: flex; justify-content: center;">
+    <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" style="height: 28px;">
   </div>
 
-  <!-- HERO SECTION -->
-  <div class="max-w-3xl mx-auto px-4 pt-8 pb-16 text-center">
+  <!-- HERO -->
+  <div style="max-width: 680px; margin: 0 auto; padding: 24px 24px 60px; text-align: center;">
 
     <!-- EYEBROW -->
-    <div class="inline-block bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-      <span class="text-white/70 text-xs font-semibold tracking-widest uppercase">Free Video Training for Yoga Teachers & Wellness Coaches</span>
+    <div style="margin-bottom: 24px;">
+      <span class="eyebrow">
+        <span style="color:#FAD825;">&#9654;</span> Free Training
+      </span>
     </div>
 
     <!-- HEADLINE -->
-    <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-      The Yoga Teacher Who Had<br>
-      <span class="yellow-accent">200,000 Followers</span><br>
-      - and Was Still Eating<br>Peanut Butter Sandwiches
+    <h1 class="hero-headline" style="font-size: 48px; font-weight: 900; line-height: 1.10; color: white; margin: 0 0 20px; letter-spacing: -0.02em;">
+      The 3-Pillar System Helping Yoga Teachers Escape the $30/Class Grind and Build
+      <span class="headline-yellow"> $5K&ndash;$20K/Month Businesses</span>
     </h1>
 
-    <!-- SUB-HEADLINE -->
-    <p class="text-white/75 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
-      In this free training, yoga teacher Daniel Rama reveals the exact 3-part system that took him from biking to classes in the Canadian winter to $20K+/month - working 15 hours a week from Thailand. No fluff. No hype. Just what actually works.
+    <!-- SUBHEADLINE -->
+    <p style="font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0 0 36px; font-style: italic;">
+      Without a huge following, without becoming an influencer, and without selling your soul online.
     </p>
 
-    <!-- SOCIAL PROOF LINE -->
-    <p class="text-white/60 text-sm mb-8 font-medium">
-      Join <strong class="text-white">1,038+ yoga teachers in 47 countries</strong> who've already used this system.
-    </p>
-
-    <!-- OPT-IN FORM -->
-    <div class="glass rounded-2xl p-6 md:p-8 max-w-md mx-auto">
+    <!-- FORM CARD -->
+    <div class="glass-form" style="padding: 28px; max-width: 480px; margin: 0 auto 28px;">
       <form action="vsl.html" method="GET">
-        <div class="space-y-3 mb-4">
-          <input type="text" name="fname" placeholder="Your first name" required
-            class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 text-base">
-          <input type="email" name="email" placeholder="Your best email" required
-            class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 text-base">
-          <input type="tel" name="phone" placeholder="Your phone number (for training access)" required
-            class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-white/40 text-base">
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px;">
+          <input class="input-field" type="text" name="fname" placeholder="First Name" required>
+          <input class="input-field" type="email" name="email" placeholder="Email Address" required>
+          <input class="input-field" type="tel" name="phone" placeholder="Phone Number" required>
         </div>
-        <button type="submit" class="btn-cta grad-purple glow-purple w-full text-white font-black text-lg py-4 px-6 rounded-xl tracking-tight">
-          → WATCH THE FREE TRAINING NOW
+        <button type="submit" class="btn-cta">
+          Watch the Free Training Now
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </form>
-      <p class="text-white/40 text-xs mt-3 text-center">🔒 100% private. Zero spam. Unsubscribe anytime.</p>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.35); margin: 10px 0 0; text-align: center;">
+        Your information is safe. We respect your privacy and will never spam you.
+      </p>
+    </div>
+
+    <!-- STATS BAR -->
+    <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
+      <div class="stat-item">
+        <span class="stat-dot"></span>
+        1,038+ yoga teachers served
+      </div>
+      <div class="stat-item">
+        <span class="stat-dot"></span>
+        47 countries worldwide
+      </div>
     </div>
 
   </div>
 </div>
-
-<!-- BELOW FOLD - WHAT YOU'LL DISCOVER -->
-<div class="bg-[#F5F4EE] py-16 px-4">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-[#0D0D0D] text-3xl md:text-4xl font-black text-center mb-12">Here's what you'll learn inside the free training:</h2>
-
-    <div class="space-y-4">
-      <!-- Bullet 1 -->
-      <div class="glass-light rounded-2xl p-6 border-l-4 border-[#6100FF]">
-        <p class="font-black text-[#0D0D0D] text-lg mb-1">→ Why having more followers WON'T make you more money</p>
-        <p class="text-[#555] text-base leading-relaxed">(Daniel had 200,000+ followers and was still broke. Here's what actually drives income - and it's not your follower count.)</p>
-      </div>
-      <!-- Bullet 2 -->
-      <div class="glass-light rounded-2xl p-6 border-l-4 border-[#6100FF]">
-        <p class="font-black text-[#0D0D0D] text-lg mb-1">→ The "Direction Positioning" strategy: how to choose your direction and grow into it with confidence</p>
-        <p class="text-[#555] text-base leading-relaxed">Not "find your niche." That's advice that sounds right but doesn't work. This is different - and it's the first thing Daniel teaches every teacher he works with.</p>
-      </div>
-      <!-- Bullet 3 -->
-      <div class="glass-light rounded-2xl p-6 border-l-4 border-[#6100FF]">
-        <p class="font-black text-[#0D0D0D] text-lg mb-1">→ The Content Modeling method that builds an audience of buyers - not just followers</p>
-        <p class="text-[#555] text-base leading-relaxed">You don't need to create content from scratch. You need to find what's already working and make it yours. Katrin Oswald used this to grow from 1K to 14K followers and add $5-10K/month to her income - in 4-6 months, through Impact Academy, pre/postnatal yoga niche, full program participation.</p>
-      </div>
-      <!-- Bullet 4 -->
-      <div class="glass-light rounded-2xl p-6 border-l-4 border-[#6100FF]">
-        <p class="font-black text-[#0D0D0D] text-lg mb-1">→ Why mid-ticket pricing ($200-500) is the sweet spot for yoga teachers right now</p>
-        <p class="text-[#555] text-base leading-relaxed">High enough to make real money. Accessible enough that buyers don't hesitate. David Garrigues - Ashtanga yoga teacher, 2+ years in Impact Academy - generated $33,371 in 5 days from a single $299 offer.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROOF STRIP -->
-<div class="grad-hero py-16 px-4">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-white text-2xl md:text-3xl font-black text-center mb-10">Real teachers. Real results. Real context.</h2>
-
-    <div class="grid md:grid-cols-3 gap-4">
-      <!-- Testimonial 1 -->
-      <div class="proof-card glass rounded-2xl p-6">
-        <p class="text-white/85 text-sm leading-relaxed mb-4 italic">"I went from 1,700 followers to over 200,000 using the content strategy Daniel teaches. I built an entire online business around back-pain relief yoga - something I'd always taught but never knew how to build around."</p>
-        <div class="border-t border-white/20 pt-3">
-          <p class="text-white font-bold text-sm">Debbie M.</p>
-          <p class="text-white/50 text-xs">Back-pain relief yoga · Impact Academy · starting from 1.7K followers</p>
-        </div>
-      </div>
-      <!-- Testimonial 2 -->
-      <div class="proof-card glass rounded-2xl p-6">
-        <p class="text-white/85 text-sm leading-relaxed mb-4 italic">"I was making $150/month and was about to give up on teaching yoga online entirely. Twelve months later, I'd reached 20,000 followers and done over $17,000 in sales."</p>
-        <div class="border-t border-white/20 pt-3">
-          <p class="text-white font-bold text-sm">Jenelle L.</p>
-          <p class="text-white/50 text-xs">Yoga teacher · Impact Academy · full program participation · 12 months</p>
-        </div>
-      </div>
-      <!-- Testimonial 3 -->
-      <div class="proof-card glass rounded-2xl p-6">
-        <p class="text-white/85 text-sm leading-relaxed mb-4 italic">"My first month using the Hybrid Coaching system: $19,600. Recurring. I'd never had a result like that in my life."</p>
-        <div class="border-t border-white/20 pt-3">
-          <p class="text-white font-bold text-sm">Miles M.</p>
-          <p class="text-white/50 text-xs">Handstand coach · Impact Academy · first month after full implementation</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Closing line + second CTA -->
-    <div class="text-center mt-12">
-      <p class="text-white/60 text-sm mb-6 font-medium">Impact and income grow together. Watch the training to see how.</p>
-      <a href="vsl.html" class="inline-block btn-cta grad-purple glow-purple text-white font-black text-lg py-4 px-10 rounded-xl tracking-tight">
-        → WATCH THE FREE TRAINING NOW
-      </a>
-      <p class="text-white/30 text-xs mt-3">🔒 100% private. Zero spam. Unsubscribe anytime.</p>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<div class="bg-[#0D0D0D] py-6 px-4 text-center">
-  <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" class="h-6 mx-auto mb-3 opacity-50">
-  <p class="text-white/30 text-xs">© 2026 Impact Me All. Results shared by real program participants vary based on niche, starting point, effort, and time invested. Not a guarantee of income.</p>
-</div>
-
 </body>
 </html>
