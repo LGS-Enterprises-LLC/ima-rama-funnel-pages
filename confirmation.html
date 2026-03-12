@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Call Is Confirmed - Impact</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { -webkit-font-smoothing: antialiased; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; background: #F5F4EE; }
+  .grad-hero { background: linear-gradient(135deg, #0D0D0D 0%, #1a0533 50%, #0D0D0D 100%); }
+  .grad-purple { background: linear-gradient(135deg, #6100FF 0%, #4a00c4 100%); }
+  .glow-purple { box-shadow: 0 0 30px rgba(97,0,255,0.5); }
+  .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+  .glass-light { background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border: 1px solid rgba(97,0,255,0.15); }
+  .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; }
+  .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .video-placeholder-sm { position: relative; padding-bottom: 56.25%; background: #1a1a1a; border-radius: 12px; overflow: hidden; }
+  .video-placeholder-sm .inner { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
+  .sticky-banner { position: sticky; top: 0; z-index: 50; }
+  .testimonial-card { transition: all 0.3s ease; }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+</style>
+</head>
+<body>
+
+<!-- STICKY URGENCY BANNER -->
+<div class="sticky-banner bg-[#FAD825] py-3 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="text-[#0D0D0D] font-bold text-sm md:text-base">
+      ⚠️ <strong>Heads up</strong> - your free Hybrid Coaching training will disappear once you close this window. 
+      <a href="vsl.html" class="underline font-black">Watch it now</a> or use the link below to rewatch it before your call.
+    </p>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="grad-hero">
+  <div class="max-w-5xl mx-auto px-4 py-5 flex justify-center">
+    <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" class="h-8">
+  </div>
+
+  <!-- SUB-TEXT -->
+  <div class="max-w-2xl mx-auto px-4 pt-4 pb-2 text-center">
+    <p class="text-white/60 text-base leading-relaxed">
+      3 months from now, you could be one of the success stories below.<br>
+      Or you could be exactly where you are right now.<br>
+      <strong class="text-white/80">The difference is what you do next.</strong>
+    </p>
+  </div>
+
+  <!-- CONFIRMATION HEADLINE -->
+  <div class="max-w-3xl mx-auto px-4 pt-6 pb-12 text-center">
+    <div class="inline-flex items-center gap-3 mb-4">
+      <span class="text-4xl">✅</span>
+      <h1 class="text-white text-3xl md:text-5xl font-black">YOUR CALL IS CONFIRMED.</h1>
+    </div>
+    <p class="text-white/70 text-xl">One important thing before we meet - watch this short video below.</p>
+  </div>
+</div>
+
+<!-- CONFIRMATION VIDEO -->
+<div class="bg-[#0D0D0D] py-10 px-4">
+  <div class="max-w-3xl mx-auto">
+    <p class="text-white/70 text-center text-base mb-6 leading-relaxed">
+      Daniel walks you through exactly what to expect on your call, what you should prepare, and how to make the most of the 30 minutes you'll have together.<br>
+      <strong class="text-white">It's less than 5 minutes. Watch it now.</strong>
+    </p>
+
+    <!-- CONFIRMATION VIDEO PLACEHOLDER -->
+    <div class="video-placeholder-sm mb-6" style="min-height:300px;">
+      <div class="inner">
+        <div style="width:70px;height:70px;background:rgba(97,0,255,0.8);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(97,0,255,0.6);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p class="text-white/50 text-sm">[ CONFIRMATION_VIDEO_PLACEHOLDER ]</p>
+        <p class="text-white/30 text-xs">Replace with Daniel's pre-call welcome video</p>
+      </div>
+    </div>
+
+    <p class="text-white/60 text-base text-center leading-relaxed mb-3">Your call is with someone from Daniel's team at Impact.</p>
+    <p class="text-white/60 text-base text-center leading-relaxed mb-3">They've worked with over 1,000 yoga teachers and wellness coaches across 47 countries.</p>
+    <p class="text-white/60 text-base text-center leading-relaxed mb-6">They're not going to pressure you. They're going to listen, diagnose your specific situation, and tell you honestly whether the Hybrid Coaching system is the right next step - or not.</p>
+    <p class="text-white font-bold text-center text-lg">Show up. Be honest about where you are. That's all you need to do.</p>
+
+    <div class="text-center mt-8">
+      <a href="vsl.html" class="inline-flex items-center gap-2 text-[#6100FF] font-bold text-base hover:text-[#FAD825] transition-colors">
+        <span>👉</span> Want to rewatch the full Hybrid Coaching training before your call? Watch it here →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- BREAKOUT VIDEOS -->
+<div class="bg-[#F5F4EE] py-16 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-[#0D0D0D] text-2xl md:text-3xl font-black text-center mb-3">Got questions before your call?</h2>
+    <h2 class="text-[#0D0D0D] text-2xl md:text-3xl font-black text-center mb-4">Daniel answers the most common ones below.</h2>
+    <p class="text-[#555] text-center text-lg mb-10 max-w-2xl mx-auto">These are the questions we hear most often before a Clarity Call. Watch the ones that apply to you. It'll make your call more useful.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Breakout 1 -->
+      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
+        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
+          <div class="inner">
+            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_1_PLACEHOLDER ]</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="font-black text-[#0D0D0D] text-base">"What If This Doesn't Work For Me?"</p>
+        </div>
+      </div>
+
+      <!-- Breakout 2 -->
+      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
+        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
+          <div class="inner">
+            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_2_PLACEHOLDER ]</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="font-black text-[#0D0D0D] text-base">"Why Does This Cost What It Costs?"</p>
+        </div>
+      </div>
+
+      <!-- Breakout 3 -->
+      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
+        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
+          <div class="inner">
+            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_3_PLACEHOLDER ]</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="font-black text-[#0D0D0D] text-base">"I'm Not Tech-Savvy - Can I Still Do This?"</p>
+        </div>
+      </div>
+
+      <!-- Breakout 4 -->
+      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
+        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
+          <div class="inner">
+            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_4_PLACEHOLDER ]</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="font-black text-[#0D0D0D] text-base">"How Long Before I See Results?"</p>
+        </div>
+      </div>
+
+      <!-- Breakout 5 -->
+      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
+        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
+          <div class="inner">
+            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_5_PLACEHOLDER ]</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="font-black text-[#0D0D0D] text-base">"Is This Just Another Course?"</p>
+        </div>
+      </div>
+
+      <!-- Breakout 6 -->
+      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
+        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
+          <div class="inner">
+            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_6_PLACEHOLDER ]</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="font-black text-[#0D0D0D] text-base">"What Makes Impact Different?"</p>
+        </div>
+      </div>
+
+      <!-- Breakout 7 - full width -->
+      <div class="glass-light rounded-2xl overflow-hidden shadow-md md:col-span-2 max-w-md mx-auto w-full">
+        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
+          <div class="inner">
+            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_7_PLACEHOLDER ]</p>
+          </div>
+        </div>
+        <div class="p-5">
+          <p class="font-black text-[#0D0D0D] text-base">"Real Talk: Who Is This NOT For?"</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS SECTION -->
+<div class="grad-hero py-16 px-4">
+  <div class="max-w-5xl mx-auto">
+
+    <h2 class="text-white text-3xl md:text-5xl font-black text-center mb-4">See What 1,038+ Teachers Like You<br>Have to Say About Impact</h2>
+    <p class="text-white/60 text-lg text-center mb-4 max-w-2xl mx-auto">Here's your proof that building a thriving online teaching business in 2026 is possible.</p>
+    <p class="text-white/50 text-base text-center mb-12 max-w-2xl mx-auto">Not easy. Not guaranteed. Not overnight.<br>But possible - if you know what you're doing.</p>
+
+    <!-- 2-column grid for testimonials -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/eHwlES7liVU" loading="lazy" allowfullscreen title="Testimonial 1"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"YOU HELPED ME TURN IT AROUND."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/v3z7fsg8mcI" loading="lazy" allowfullscreen title="Testimonial 2"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I MADE OVER $17,000"</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/_NJYwoksR0M" loading="lazy" allowfullscreen title="Testimonial 3"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I WOULD JUST SHOW THEM MY BANK STATEMENT..."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/KZpu8FvFgvE" loading="lazy" allowfullscreen title="Testimonial 4"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"$10,000 ADDITIONAL INCOME IN A SINGLE MONTH"</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/2qP-XKJ_zG0" loading="lazy" allowfullscreen title="Testimonial 5"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"WE GOT A CRAZY AMOUNT OF SIGNUPS."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/emvdrVcFk-Q" loading="lazy" allowfullscreen title="Testimonial 6"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I SKYROCKETED TO $20,000 IN THE FIRST 4 WEEKS."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 7 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/ZwjkT_Bz-dM" loading="lazy" allowfullscreen title="Testimonial 7"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I WENT FROM 1.5K TO OVER 200,000 FOLLOWERS."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 8 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/bjMuN4Lcu8Q" loading="lazy" allowfullscreen title="Testimonial 8"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I FINALLY BUILT A PURPOSEFUL ONLINE PRESENCE"</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 9 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/OAVjOKKSe54" loading="lazy" allowfullscreen title="Testimonial 9"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I LEARNED TO BE A BETTER YOGI."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 10 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/bk3hxghs62M" loading="lazy" allowfullscreen title="Testimonial 10"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I ADDED 280,000 YOUTUBE SUBSCRIBERS."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 11 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/J9Es4Z0lPA0" loading="lazy" allowfullscreen title="Testimonial 11"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"NOT A BAD DECISION... RIGHT?"</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 12 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/IXpyl2cX8w8" loading="lazy" allowfullscreen title="Testimonial 12"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"OH MY GOSH! SUCH A BIG HELP."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 13 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/tQJ8THlcLK4" loading="lazy" allowfullscreen title="Testimonial 13"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I NEVER ACQUIRED SO MANY LEADS."</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 14 -->
+      <div class="testimonial-card glass rounded-2xl overflow-hidden">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/u0WFu6NWEYU" loading="lazy" allowfullscreen title="Testimonial 14"></iframe>
+        </div>
+        <div class="p-4">
+          <p class="text-white font-black text-sm">"I GREW MY AUDIENCE TO 74,000 FOLLOWERS."</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- COMPLIANCE + FINAL SIGN-OFF -->
+<div class="bg-[#F5F4EE] py-12 px-4">
+  <div class="max-w-2xl mx-auto text-center">
+    <p class="text-[#999] text-xs leading-relaxed mb-10">The results shared on this page are from real Impact Academy members who participated in the full program. Individual results vary based on starting point, niche, effort level, consistency, and time invested. These outcomes are not typical and should not be interpreted as a guarantee of what you will achieve. Impact and income grow together - but they require work.</p>
+
+    <h2 class="text-[#0D0D0D] text-3xl font-black mb-3">Your call is booked.</h2>
+    <p class="text-[#555] text-lg leading-relaxed mb-4">We've got your spot saved.</p>
+    <p class="text-[#555] text-base leading-relaxed mb-8">Check your inbox for your confirmation email - it'll have the call details, a reminder, and a link back to this page in case you want to rewatch anything before we meet.</p>
+    <p class="text-[#0D0D0D] text-xl font-black mb-2">We'll see you soon. 💙</p>
+    <p class="text-[#555]">- Daniel & The Impact Team</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="bg-[#0D0D0D] py-6 px-4 text-center">
+  <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" class="h-6 mx-auto mb-3 opacity-50">
+  <p class="text-white/30 text-xs">© 2026 Impact Me All. Results shared by real program participants vary based on niche, starting point, effort, and time invested. Not a guarantee of income.</p>
+</div>
+
+</body>
+</html>
