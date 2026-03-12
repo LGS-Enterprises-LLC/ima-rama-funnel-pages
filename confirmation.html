@@ -3,163 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Call Is Confirmed - Impact</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<title>Your Call Is Confirmed — Impact</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-font-smoothing:antialiased}
-:root{--f:'Inter',-apple-system,sans-serif;--violet:oklch(0.59 0.27 285);--teal:oklch(0.68 0.17 188);--yellow:#FAD825;--green:#1BEBA0;--r-sm:10px;--r-md:16px;--r-lg:22px}
-body{font-family:var(--f);background:#F5F4EE;overflow-x:hidden}
+:root{--purple:#6100FF;--yellow:#FAD825;--green:#1BEBA0;--bg:#F5F4EE;--dark:#0D0D0D;--grey:#666;--lb:#e8e6e0;--f:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;--r:12px}
+body{font-family:var(--f);background:var(--bg);color:var(--dark);overflow-x:hidden}
 
 /* STICKY BANNER */
-.banner{position:sticky;top:0;z-index:100;background:var(--yellow);padding:11px 20px;border-bottom:1px solid rgba(0,0,0,0.08)}
+.banner{position:sticky;top:0;z-index:100;background:var(--yellow);padding:11px 24px;border-bottom:1px solid rgba(0,0,0,0.10)}
 .banner p{font-size:13px;font-weight:700;color:#1a1008;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center}
-.banner a{color:#1a1008;text-decoration:underline;font-weight:800}
+.banner a{color:#1a1008;font-weight:800;text-decoration:underline}
 
-/* HEADER */
-.hdr{
-  background:
-    radial-gradient(ellipse 80% 70% at 75% -5%,oklch(0.59 0.27 285 / 0.52) 0%,transparent 50%),
-    radial-gradient(ellipse 60% 50% at -5% 90%,oklch(0.49 0.26 265 / 0.38) 0%,transparent 50%),
-    radial-gradient(ellipse 45% 40% at 60% 60%,oklch(0.68 0.17 188 / 0.15) 0%,transparent 50%),
-    linear-gradient(160deg,oklch(0.22 0.18 285) 0%,oklch(0.14 0.11 280) 100%);
-  position:relative;overflow:hidden;
-}
-.hdr-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
-nav{position:relative;z-index:5;padding:22px 32px;display:flex;justify-content:center}
-nav img{height:28px;filter:brightness(0) invert(1)}
-.hdr-inner{position:relative;z-index:5;max-width:600px;margin:0 auto;padding:12px 20px 44px;text-align:center}
-.contrast{font-size:14px;color:rgba(255,255,255,0.48);line-height:1.70;margin-bottom:26px}
-.contrast strong{color:rgba(255,255,255,0.80)}
-.conf-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(27,235,160,0.12);border:1px solid rgba(27,235,160,0.32);border-radius:14px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--green);margin-bottom:12px}
-h1{font-size:clamp(30px,5.5vw,50px);font-weight:900;line-height:1.07;letter-spacing:-0.032em;color:#fff;margin-bottom:12px}
-.sub{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.65;padding-bottom:40px}
+nav{background:var(--bg);border-bottom:1px solid var(--lb);padding:18px 48px;display:flex;align-items:center;justify-content:center}
+nav img{height:26px}
 
-/* VIDEO SECTION */
-.vid-wrap{background:#0a0720;padding:0 0 6px}
-.vi-text{max-width:660px;margin:0 auto;padding:28px 20px 18px;text-align:center}
-.vi-text p{font-size:15px;color:rgba(255,255,255,0.58);line-height:1.65;margin-bottom:6px}
-.vi-text strong{color:#fff}
-.vid-box-outer{max-width:820px;margin:0 auto;position:relative;aspect-ratio:16/9;background:oklch(0.10 0.08 280);overflow:hidden}
-.vid-ph{position:absolute;inset:0;background:linear-gradient(135deg,oklch(0.12 0.10 285),oklch(0.18 0.15 280));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.play-btn{width:70px;height:70px;background:var(--violet);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .20s;box-shadow:0 0 0 14px oklch(0.59 0.27 285 / 0.16),0 0 50px oklch(0.59 0.27 285 / 0.42)}
-.play-btn:hover{transform:scale(1.10)}
-.vtag{font-size:11px;color:rgba(255,255,255,0.28)}
-.vf{max-width:660px;margin:0 auto;padding:20px 20px 14px;text-align:center}
-.vf p{font-size:14px;color:rgba(255,255,255,0.50);line-height:1.65;margin-bottom:8px}
-.vf strong{color:rgba(255,255,255,0.80)}
-.rewatch{display:inline-flex;align-items:center;gap:6px;color:oklch(0.65 0.25 285);font-size:14px;font-weight:600;text-decoration:none;padding:10px 0 22px;transition:all .15s}
+/* HERO */
+.hero{background:var(--dark);padding:52px 24px 44px;text-align:center}
+.hero-inner{max-width:620px;margin:0 auto}
+.context-text{font-size:14px;color:rgba(255,255,255,0.48);line-height:1.72;margin-bottom:26px}
+.context-text strong{color:rgba(255,255,255,0.80)}
+.conf-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(27,235,160,0.15);border:1px solid rgba(27,235,160,0.35);border-radius:14px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--green);margin-bottom:14px}
+.conf-badge-dot{width:7px;height:7px;background:var(--green);border-radius:50%}
+h1{font-size:clamp(28px,5vw,46px);font-weight:900;line-height:1.08;letter-spacing:-0.03em;color:#fff;margin-bottom:12px}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.65;padding-bottom:36px}
+
+/* VIDEO */
+.vid-wrap{background:#000;border-top:3px solid var(--purple)}
+.vid-box{max-width:900px;margin:0 auto;position:relative;aspect-ratio:16/9;background:#0a0a0a;overflow:hidden}
+.vid-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#0f0828,#1a0d40)}
+.play-btn{width:72px;height:72px;background:var(--purple);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .20s;box-shadow:0 0 0 12px rgba(97,0,255,0.16),0 0 40px rgba(97,0,255,0.38)}
+.play-btn:hover{transform:scale(1.08)}
+.ph-lbl{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.05em}
+.vid-footer{max-width:660px;margin:0 auto;padding:24px 24px 14px;text-align:center}
+.vid-footer p{font-size:14px;color:rgba(255,255,255,0.50);line-height:1.68;margin-bottom:8px}
+.vid-footer strong{color:rgba(255,255,255,0.80)}
+.vid-footer .key{font-size:16px;color:#fff;font-weight:700;margin-top:14px}
+.rewatch{display:inline-flex;align-items:center;gap:6px;color:rgba(97,0,255,0.90);font-size:14px;font-weight:600;text-decoration:none;padding:10px 0 22px;transition:color .15s}
 .rewatch:hover{color:var(--yellow)}
 
 /* SECTIONS */
-.section{padding:72px 24px}
-.s-w{background:#fff}.s-o{background:#F5F4EE}.s-dark{background:linear-gradient(155deg,oklch(0.22 0.18 285) 0%,oklch(0.14 0.11 280) 100%)}
-.wrap{max-width:880px;margin:0 auto}
+.section{padding:72px 48px}
+.s-white{background:#fff}
+.s-cream{background:var(--bg)}
+.s-dark{background:var(--dark)}
+.wrap{max-width:900px;margin:0 auto}
 .wrap-sm{max-width:720px;margin:0 auto}
-.lbl{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet);margin-bottom:10px}
-.lbl-y{color:oklch(0.85 0.19 87)}
-.ttl{font-size:clamp(22px,4vw,34px);font-weight:900;line-height:1.10;letter-spacing:-0.022em;color:#0D0D0D;margin-bottom:10px}
+.lbl{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
+.lbl-y{color:var(--yellow)}
+.ttl{font-size:clamp(22px,4vw,34px);font-weight:900;line-height:1.10;letter-spacing:-0.024em;color:var(--dark);margin-bottom:10px}
 .ttl-w{color:#fff}
-.body-t{font-size:16px;color:#666;line-height:1.72;margin-bottom:36px}
-.body-w{color:rgba(255,255,255,0.52)}
+.body{font-size:16px;color:var(--grey);line-height:1.72;margin-bottom:32px}
+.body-w{color:rgba(255,255,255,0.55)}
 
-/* Breakout video grid */
-.bv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.bvc{background:#FAFAFA;border-radius:var(--r-md);overflow:hidden;border:1px solid rgba(0,0,0,0.05);transition:all .22s;cursor:default;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.bvc:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(139,92,246,0.14);border-color:rgba(139,92,246,0.15)}
-.bv-vid{aspect-ratio:16/9;background:linear-gradient(135deg,oklch(0.18 0.15 285),oklch(0.12 0.10 280));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
-.bv-play{width:44px;height:44px;background:oklch(0.59 0.27 285 / 0.80);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .18s}
-.bvc:hover .bv-play{background:var(--violet);transform:scale(1.10)}
+/* Breakout grid */
+.bv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.bvc{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--lb);transition:all .22s;cursor:default}
+.bvc:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(97,0,255,0.12);border-color:rgba(97,0,255,0.18)}
+.bv-vid{aspect-ratio:16/9;background:linear-gradient(135deg,#0f0828,#1a0d40);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
+.bv-play{width:44px;height:44px;background:rgba(97,0,255,0.80);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.bvc:hover .bv-play{background:var(--purple);transform:scale(1.10)}
 .bv-tag{font-size:10px;color:rgba(255,255,255,0.28)}
-.bv-lbl{padding:13px 16px;font-size:13px;font-weight:700;color:#111;line-height:1.35}
+.bv-lbl{padding:14px 16px;font-size:13px;font-weight:700;color:var(--dark);line-height:1.35}
 
-/* Testimonials grid */
-.yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.yc{border-radius:var(--r-md);overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:rgba(0,0,0,0.25);transition:all .25s}
-.yc:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,0.40);border-color:rgba(255,255,255,0.22)}
+/* YouTube grid */
+.yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.yc{border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:rgba(0,0,0,0.25);transition:all .25s}
+.yc:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.40);border-color:rgba(255,255,255,0.22)}
 .yv{position:relative;padding-bottom:56.25%;height:0;overflow:hidden}
 .yv iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
-.yl{padding:12px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,0.72);line-height:1.3}
+.yl{padding:12px 14px;font-size:12px;font-weight:700;color:rgba(255,255,255,0.72);line-height:1.30}
 
 /* Sign off */
-.so-section{background:#fff;padding:64px 24px;text-align:center}
+.so-section{background:#fff;padding:64px 48px;text-align:center}
 .so-inner{max-width:500px;margin:0 auto}
-.disc{font-size:11px;color:#bbb;line-height:1.70;margin-bottom:36px;border-top:1px solid #eee;padding-top:24px}
-.so-h{font-size:clamp(22px,4vw,34px);font-weight:900;color:#0D0D0D;letter-spacing:-0.022em;margin-bottom:10px}
-.so-b{font-size:15px;color:#666;line-height:1.72;margin-bottom:10px}
-.so-n{font-size:17px;font-weight:900;color:#111;margin-top:20px}
+.disc{font-size:11px;color:#bbb;line-height:1.72;margin-bottom:36px;border-top:1px solid #eee;padding-top:24px;text-align:left}
+.so-h{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--dark);letter-spacing:-0.022em;margin-bottom:12px}
+.so-b{font-size:15px;color:var(--grey);line-height:1.72;margin-bottom:10px}
+.so-sig{font-size:17px;font-weight:900;color:var(--dark);margin-top:24px}
 
-footer{background:oklch(0.10 0.08 280);padding:28px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
-footer img{height:22px;opacity:.28;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;filter:brightness(0) invert(1)}
-footer p{font-size:11px;color:rgba(255,255,255,0.22);line-height:1.65;max-width:600px;margin:0 auto}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.a1{animation:fadeUp .55s ease-out both}.a2{animation:fadeUp .55s .10s ease-out both}.a3{animation:fadeUp .55s .20s ease-out both}
+footer{background:var(--dark);padding:30px 48px;display:flex;flex-direction:column;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,0.06)}
+footer img{height:22px;opacity:.28;filter:brightness(0) invert(1)}
+footer p{font-size:11px;color:rgba(255,255,255,0.22);line-height:1.65;max-width:640px;text-align:center}
+@media(max-width:768px){nav,footer,.section,.so-section{padding-left:20px;padding-right:20px}}
 </style>
 </head>
 <body>
 
 <div class="banner">
-  <p><i data-lucide="alert-triangle" style="width:14px;height:14px;flex-shrink:0"></i> Your free training disappears when you close this window. <a href="vsl.html">Watch it again &rarr;</a></p>
+  <p>&#9888; Heads up &mdash; your free Hybrid Coaching training will disappear once you close this window. <a href="vsl.html">Watch it again here.</a></p>
 </div>
 
-<div class="hdr">
-  <div class="hdr-grid"></div>
-  <nav><img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact"></nav>
-  <div class="hdr-inner">
-    <p class="contrast a1">3 months from now, you could be one of the success stories below.<br>Or you could be exactly where you are right now.<br><strong>The difference is what you do next.</strong></p>
-    <div class="a2"><div class="conf-badge"><i data-lucide="check-circle-2" style="width:16px;height:16px"></i> Your Call Is Confirmed</div></div>
-    <h1 class="a2">One thing before we meet.</h1>
-    <p class="sub a3">Watch Daniel's short video below - less than 5 minutes, and it'll make your call significantly more valuable.</p>
+<nav><img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact"></nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="context-text">3 months from now, you could be one of the success stories below.<br>Or you could be exactly where you are right now.<br><strong>The difference is what you do next.</strong></p>
+    <div class="conf-badge"><span class="conf-badge-dot"></span> Your Call Is Confirmed</div>
+    <h1>One thing before we meet.</h1>
+    <p class="hero-sub">Watch Daniel's short video below before your call. It takes less than 5 minutes and it will make the entire conversation more valuable &mdash; for both of you.</p>
   </div>
 </div>
 
 <div class="vid-wrap">
-  <div class="vi-text"><p>Daniel walks you through what to expect, what to prepare, and how to make the most of the 30 minutes together.</p><p><strong>Less than 5 minutes. Watch it now.</strong></p></div>
-  <div class="vid-box-outer"><div class="vid-ph"><div class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="vtag">[ CONFIRMATION_VIDEO_PLACEHOLDER ]</p></div></div>
-  <div class="vf">
-    <p>Your call is with someone from Daniel's team at Impact. They've worked with <strong>1,000+ yoga teachers across 47 countries.</strong></p>
-    <p>They're not going to pressure you. They'll listen, diagnose your situation, and tell you honestly whether the Hybrid Coaching system is the right next step - or not.</p>
-    <p style="color:#fff;font-weight:700;font-size:15px;margin-top:14px">Show up. Be honest about where you are. That's all you need to do.</p>
-    <a href="vsl.html" class="rewatch"><i data-lucide="play-circle" style="width:16px;height:16px"></i> Rewatch the full training before your call &rarr;</a>
+  <div class="vid-box">
+    <div class="vid-ph">
+      <div class="play-btn"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+      <p class="ph-lbl">[ CONFIRMATION VIDEO PLACEHOLDER ]</p>
+    </div>
+  </div>
+  <div class="vid-footer">
+    <p>Daniel walks you through what to bring to the call, what to think about beforehand, and what the team is going to cover with you. It's short, specific, and worth watching.</p>
+    <p>Your call is with an Impact strategist who has worked with <strong>over 1,000 yoga teachers across 47 countries.</strong> They've seen almost every situation. They're not going to pitch you &mdash; they're going to listen, diagnose, and tell you honestly what they see.</p>
+    <p class="key">Show up. Be honest about where you are. That's all you need to do.</p>
+    <a href="vsl.html" class="rewatch">&#9654; Rewatch the full Hybrid Coaching training before your call &rarr;</a>
   </div>
 </div>
 
-<section class="section s-w">
+<!-- BREAKOUT VIDEOS -->
+<section class="section s-cream">
   <div class="wrap-sm">
-    <p class="lbl">Got questions before your call?</p>
-    <h2 class="ttl">Daniel answers the most common ones.</h2>
-    <p class="body-t">Watch whichever ones apply to you. You'll arrive already knowing what's real and what to expect.</p>
+    <p class="lbl">Common questions before your call</p>
+    <h2 class="ttl">Daniel answers the ones that come up most often.</h2>
+    <p class="body">Watch whichever ones apply to your situation. Coming into the call with these already answered means you can spend the 30 minutes on what actually matters for you.</p>
   </div>
   <div class="wrap">
     <div class="bv-grid">
-      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO_1 ]</p></div><p class="bv-lbl">"What If This Doesn't Work For Me?"</p></div>
-      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO_2 ]</p></div><p class="bv-lbl">"Why Does This Cost What It Costs?"</p></div>
-      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO_3 ]</p></div><p class="bv-lbl">"I'm Not Tech-Savvy - Can I Do This?"</p></div>
-      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO_4 ]</p></div><p class="bv-lbl">"How Long Before I See Results?"</p></div>
-      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO_5 ]</p></div><p class="bv-lbl">"Is This Just Another Course?"</p></div>
-      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO_6 ]</p></div><p class="bv-lbl">"What Makes Impact Different?"</p></div>
-      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO_7 ]</p></div><p class="bv-lbl">"Real Talk: Who Is This NOT For?"</p></div>
+      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO 1 ]</p></div><p class="bv-lbl">"What if this doesn't work for me specifically?"</p></div>
+      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO 2 ]</p></div><p class="bv-lbl">"Why does this cost what it costs?"</p></div>
+      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO 3 ]</p></div><p class="bv-lbl">"I'm not that technical. Can I still do this?"</p></div>
+      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO 4 ]</p></div><p class="bv-lbl">"How long does it realistically take to see results?"</p></div>
+      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO 5 ]</p></div><p class="bv-lbl">"Is this just another course I'll buy and not finish?"</p></div>
+      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO 6 ]</p></div><p class="bv-lbl">"What actually makes Impact different from other programs?"</p></div>
+      <div class="bvc"><div class="bv-vid"><div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div><p class="bv-tag">[ VIDEO 7 ]</p></div><p class="bv-lbl">"Real talk: who is this NOT the right fit for?"</p></div>
     </div>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section class="section s-dark">
   <div class="wrap">
     <p class="lbl lbl-y">1,038+ teachers</p>
-    <h2 class="ttl ttl-w" style="margin-bottom:10px">See What Teachers Like You Have Built</h2>
-    <p class="body-t body-w" style="margin-bottom:8px">Not easy. Not guaranteed. Not overnight.</p>
-    <p class="body-t body-w" style="font-style:italic;font-size:13px;margin-bottom:36px">But possible - if you know what you're doing. These are real teachers. Real outcomes.</p>
+    <h2 class="ttl ttl-w">Here's your proof that building a thriving online business as a yoga teacher in 2026 is possible &mdash; if you know how.</h2>
+    <p class="body body-w" style="margin-bottom:40px">These are real teachers who were in your position. Not overnight wins. Real work, real results, real context.</p>
     <div class="yt-grid">
       <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/eHwlES7liVU" loading="lazy" allowfullscreen></iframe></div><p class="yl">"You Helped Me Turn It Around."</p></div>
       <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/v3z7fsg8mcI" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Made Over $17,000"</p></div>
-      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/_NJYwoksR0M" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I'd Just Show Them My Bank Statement."</p></div>
-      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/KZpu8FvFgvE" loading="lazy" allowfullscreen></iframe></div><p class="yl">"$10,000 Additional Income in a Month"</p></div>
+      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/_NJYwoksR0M" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Would Just Show Them My Bank Statement."</p></div>
+      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/KZpu8FvFgvE" loading="lazy" allowfullscreen></iframe></div><p class="yl">"$10,000 Additional Income in a Single Month"</p></div>
       <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/2qP-XKJ_zG0" loading="lazy" allowfullscreen></iframe></div><p class="yl">"We Got a Crazy Amount of Signups."</p></div>
-      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/emvdrVcFk-Q" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Skyrocketed to $20,000 in 4 Weeks."</p></div>
-      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/ZwjkT_Bz-dM" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Went from 1.5K to 200,000 Followers."</p></div>
-      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/bjMuN4Lcu8Q" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Finally Built a Purposeful Presence"</p></div>
+      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/emvdrVcFk-Q" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Skyrocketed to $20,000 in the First 4 Weeks."</p></div>
+      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/ZwjkT_Bz-dM" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Went From 1.5K to Over 200,000 Followers."</p></div>
+      <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/bjMuN4Lcu8Q" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Finally Built a Purposeful Online Presence"</p></div>
       <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/OAVjOKKSe54" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Learned to Be a Better Yogi."</p></div>
       <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/bk3hxghs62M" loading="lazy" allowfullscreen></iframe></div><p class="yl">"I Added 280,000 YouTube Subscribers."</p></div>
       <div class="yc"><div class="yv"><iframe src="https://www.youtube.com/embed/J9Es4Z0lPA0" loading="lazy" allowfullscreen></iframe></div><p class="yl">"Not a Bad Decision... Right?"</p></div>
@@ -170,21 +165,21 @@ footer p{font-size:11px;color:rgba(255,255,255,0.22);line-height:1.65;max-width:
   </div>
 </section>
 
+<!-- SIGN OFF -->
 <section class="so-section">
   <div class="so-inner">
-    <p class="disc">The results shared on this page are from real Impact Academy members who participated in the full program. Individual results vary based on starting point, niche, effort level, consistency, and time invested. These outcomes are not typical and should not be interpreted as a guarantee.</p>
+    <p class="disc">The results shown above are from real Impact Academy members who participated fully in the program. Individual results vary based on starting point, niche, effort level, consistency, and the time invested in implementation. These outcomes are not typical and should not be interpreted as a guarantee of income, follower growth, or any specific result. Impact and income grow together &mdash; but only with real work behind them.</p>
     <h2 class="so-h">Your call is booked.</h2>
-    <p class="so-b">Check your inbox for the confirmation email - it has the call details and a link back here in case you want to rewatch anything before we meet.</p>
-    <p class="so-b">We'll see you soon.</p>
-    <p style="font-size:22px;margin:18px 0 0">&#128153;</p>
-    <p class="so-n">- Daniel &amp; The Impact Team</p>
+    <p class="so-b">Check your inbox for the confirmation email. It has the call details, a calendar invite, and a link back to this page if you want to rewatch anything beforehand.</p>
+    <p class="so-b">Come ready to be honest. That's the only preparation you need.</p>
+    <p style="font-size:22px;margin:20px 0 4px">&#128153;</p>
+    <p class="so-sig">Daniel &amp; The Impact Team</p>
   </div>
 </section>
 
 <footer>
   <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact">
-  <p>&copy; 2026 Impact Me All &middot; Results vary by niche, starting point, effort, and time invested. Not a guarantee of income.</p>
+  <p>&copy; 2026 Impact Me All. Results vary by niche, starting point, effort, and time invested. Not a guarantee of income.</p>
 </footer>
-<script>lucide.createIcons()</script>
 </body>
 </html>

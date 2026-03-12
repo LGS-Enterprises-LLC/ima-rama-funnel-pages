@@ -3,435 +3,404 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Training - Impact x Daniel Rama</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<title>Free Training — Impact x Daniel Rama</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
 
-/* ============================================================
-   DESIGN TOKENS
-   ============================================================ */
 :root{
-  --f:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  --violet:oklch(0.59 0.27 285);
-  --indigo:oklch(0.49 0.26 265);
-  --teal:oklch(0.68 0.17 188);
+  --purple:#6100FF;
+  --purple-dark:#4d00cc;
+  --purple-light:#7a2fff;
   --yellow:#FAD825;
   --green:#1BEBA0;
-  --bg-dark:oklch(0.16 0.14 285);
-  --bg-darker:oklch(0.11 0.10 285);
-  --r-sm:10px;--r-md:16px;--r-lg:22px;
+  --bg:#F5F4EE;
+  --dark:#0D0D0D;
+  --grey:#666;
+  --light-border:#e8e6e0;
+  --f:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;
+  --r:12px;
 }
 
-body{font-family:var(--f);background:#F5F4EE;overflow-x:hidden}
+body{font-family:var(--f);background:var(--bg);color:var(--dark);overflow-x:hidden}
 
-/* ============================================================
-   HERO - MULTI-COLOR GRADIENT
-   ============================================================ */
+/* ── NAV ── */
+nav{
+  background:var(--bg);
+  border-bottom:1px solid var(--light-border);
+  padding:18px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;
+}
+.nav-logo img{height:26px}
+.nav-trust{font-size:12px;color:var(--grey);font-weight:500;display:flex;align-items:center;gap:6px}
+.nav-dot{width:7px;height:7px;background:var(--green);border-radius:50%;display:inline-block}
+
+/* ── HERO — TWO COLUMN ── */
 .hero{
-  min-height:100svh;
-  position:relative;
-  display:flex;flex-direction:column;
-  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 480px;
+  min-height:calc(100svh - 61px);
 }
 
-/* 4-layer radial gradient - the Loveable-style multi-color look */
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background:
-    radial-gradient(ellipse 80% 70% at 85% -5%, oklch(0.59 0.27 285 / 0.55) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 60% at -5% 95%, oklch(0.49 0.26 265 / 0.40) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 40% at 65% 65%, oklch(0.68 0.17 188 / 0.18) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 35% at 20% 30%, oklch(0.50 0.28 278 / 0.25) 0%, transparent 50%),
-    linear-gradient(160deg, oklch(0.22 0.18 285) 0%, oklch(0.15 0.12 280) 50%, oklch(0.12 0.09 275) 100%);
-  animation:bgPulse 18s ease-in-out infinite alternate;
+/* Left: copy */
+.hero-copy{
+  background:var(--bg);
+  padding:64px 56px 64px 48px;
+  display:flex;flex-direction:column;justify-content:center;
 }
-@keyframes bgPulse{
-  0%  {filter:hue-rotate(0deg) brightness(1.00)}
-  50% {filter:hue-rotate(10deg) brightness(1.07)}
-  100%{filter:hue-rotate(-5deg) brightness(1.04)}
-}
-
-/* Floating orbs - 4 colors */
-.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(1px)}
-.o1{width:700px;height:700px;top:-220px;right:-180px;background:radial-gradient(circle,oklch(0.59 0.27 285 / 0.28) 0%,transparent 70%);animation:fl1 20s ease-in-out infinite}
-.o2{width:500px;height:500px;bottom:-140px;left:-100px;background:radial-gradient(circle,oklch(0.49 0.26 265 / 0.22) 0%,transparent 70%);animation:fl2 16s ease-in-out infinite}
-.o3{width:280px;height:280px;top:35%;right:8%;background:radial-gradient(circle,oklch(0.68 0.17 188 / 0.18) 0%,transparent 70%);animation:fl3 24s ease-in-out infinite}
-.o4{width:180px;height:180px;top:20%;left:10%;background:radial-gradient(circle,oklch(0.70 0.17 330 / 0.12) 0%,transparent 70%);animation:fl4 14s ease-in-out infinite}
-
-@keyframes fl1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-28px,38px) scale(1.04)}}
-@keyframes fl2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(22px,-26px) scale(1.06)}}
-@keyframes fl3{0%,100%{transform:translate(0,0)}33%{transform:translate(14px,18px)}66%{transform:translate(-10px,-12px)}}
-@keyframes fl4{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,14px)}}
-
-/* Subtle grid texture */
-.hero-grid{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%);
-}
-
-/* ============================================================
-   NAV
-   ============================================================ */
-nav{position:relative;z-index:10;padding:24px 32px;display:flex;justify-content:center}
-nav img{height:30px;filter:brightness(0) invert(1)}
-
-/* ============================================================
-   HERO CONTENT
-   ============================================================ */
-.hero-body{
-  position:relative;z-index:10;flex:1;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:20px 20px 56px;text-align:center;
-  max-width:660px;margin:0 auto;width:100%;
-}
-
-/* Eyebrow pill */
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.16);
-  border-radius:100px;padding:7px 16px;
+  background:#fff;border:1px solid var(--light-border);
+  border-radius:100px;padding:6px 14px;
   font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
-  color:rgba(255,255,255,0.60);margin-bottom:26px;
-  animation:fadeUp .55s ease-out both;
+  color:var(--grey);margin-bottom:28px;width:fit-content;
 }
-.dot-live{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 8px var(--green);animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
+.eyebrow-dot{width:6px;height:6px;background:var(--purple);border-radius:50%}
 
 h1{
-  font-size:clamp(38px,7vw,62px);font-weight:900;line-height:1.04;
-  letter-spacing:-0.035em;color:#fff;margin-bottom:18px;
-  animation:fadeUp .55s 0.10s ease-out both;
+  font-size:clamp(36px,4.5vw,54px);
+  font-weight:900;line-height:1.06;
+  letter-spacing:-0.03em;
+  color:var(--dark);
+  margin-bottom:22px;
+}
+h1 em{
+  font-style:normal;color:var(--purple);
 }
 
-/* Gradient shimmer text - violet to teal */
-.shimmer{
-  background:linear-gradient(90deg,var(--yellow) 0%,oklch(0.65 0.25 285) 35%,var(--teal) 65%,var(--yellow) 100%);
-  background-size:300% auto;
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:shimmer 5s linear infinite;
-}
-@keyframes shimmer{0%{background-position:0% center}100%{background-position:300% center}}
-
-.sub{
-  font-size:17px;color:rgba(255,255,255,0.55);line-height:1.65;
-  max-width:500px;margin:0 auto 32px;
-  animation:fadeUp .55s 0.18s ease-out both;
+.hero-sub{
+  font-size:17px;line-height:1.70;color:#444;
+  max-width:520px;margin-bottom:32px;
 }
 
-/* Glass form card */
-.card{
-  width:100%;max-width:420px;margin:0 auto 30px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);
-  border:1px solid rgba(255,255,255,0.18);
-  border-radius:var(--r-lg);padding:26px 24px 22px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.10),
-    0 0 0 1px rgba(139,92,246,0.15),
-    0 24px 60px rgba(0,0,0,0.45),
-    0 0 100px rgba(139,92,246,0.10);
-  animation:fadeUp .55s 0.26s ease-out both;
+.hero-bullets{
+  list-style:none;margin-bottom:36px;
+  display:flex;flex-direction:column;gap:14px;
 }
-
-.field{position:relative;margin-bottom:10px}
-.field-ic{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.32);pointer-events:none;width:15px;height:15px}
-input{
-  width:100%;padding:13px 13px 13px 40px;
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.14);
-  border-radius:var(--r-sm);
-  color:#fff;font-size:14px;font-family:var(--f);font-weight:500;
-  outline:none;transition:border-color .18s,background .18s,box-shadow .18s;
-  -webkit-appearance:none;
+.hero-bullets li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:15px;line-height:1.60;color:#333;
 }
-input::placeholder{color:rgba(255,255,255,0.32)}
-input:focus{
-  border-color:oklch(0.59 0.27 285 / 0.70);
-  background:rgba(255,255,255,0.11);
-  box-shadow:0 0 0 3px oklch(0.59 0.27 285 / 0.18);
-}
-
-/* CTA button */
-.btn{
-  width:100%;margin-top:8px;
-  padding:15px 20px;
-  background:linear-gradient(135deg,#FAD825 0%,#fcc218 50%,#FAD825 100%);
-  background-size:200% auto;
-  color:#1a1008;font-family:var(--f);font-size:14px;font-weight:800;
-  letter-spacing:0.06em;text-transform:uppercase;
-  border:none;border-radius:var(--r-sm);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  position:relative;overflow:hidden;
-  box-shadow:0 8px 28px rgba(250,216,37,0.30),0 2px 8px rgba(0,0,0,0.15);
-  transition:transform .18s,box-shadow .18s,background-position .4s;
-}
-.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18) 0%,transparent 55%);border-radius:inherit}
-.btn:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 36px rgba(250,216,37,0.45),0 4px 12px rgba(0,0,0,0.20)}
-.btn:active{transform:scale(0.97) translateY(0)}
-
-.btn-lbl{position:relative;z-index:1}
-.btn-arr{position:relative;z-index:1;width:15px;height:15px;stroke-width:2.5;transition:transform .2s}
-.btn:hover .btn-arr{transform:translateX(3px)}
-
-.privacy{font-size:11px;color:rgba(255,255,255,0.28);display:flex;align-items:center;justify-content:center;gap:5px;margin-top:11px}
-
-/* Avatar + stats row */
-.trust-row{
+.bul-ic{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--purple);color:#fff;
   display:flex;align-items:center;justify-content:center;
-  gap:14px;flex-wrap:wrap;
-  animation:fadeUp .55s 0.34s ease-out both;
+  flex-shrink:0;margin-top:1px;font-size:11px;font-weight:900;
+}
+
+/* Trust row */
+.trust-row{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
 }
 .avatars{display:flex}
 .av{
-  width:34px;height:34px;border-radius:50%;
-  border:2px solid rgba(255,255,255,0.20);
-  margin-left:-10px;overflow:hidden;flex-shrink:0;
-  background:linear-gradient(135deg,oklch(0.55 0.27 285),oklch(0.45 0.25 265));
+  width:32px;height:32px;border-radius:50%;
+  border:2px solid #fff;
+  margin-left:-9px;overflow:hidden;flex-shrink:0;
+  background:linear-gradient(135deg,#6100FF,#9b55ff);
 }
 .av:first-child{margin-left:0}
 .av img{width:100%;height:100%;object-fit:cover}
-.tr-text{font-size:13px;color:rgba(255,255,255,0.55);font-weight:500}
-.tr-text strong{color:rgba(255,255,255,0.85);font-weight:700}
-.tr-sep{width:4px;height:4px;background:rgba(255,255,255,0.22);border-radius:50%}
-.free-badge{font-size:12px;font-weight:700;color:var(--green)}
+.trust-text{font-size:13px;color:var(--grey);font-weight:500}
+.trust-text strong{color:var(--dark);font-weight:700}
 
-/* Stats strip */
-.stats-strip{
-  position:relative;z-index:10;
-  display:flex;justify-content:center;gap:0;
-  flex-wrap:wrap;
-  background:rgba(0,0,0,0.25);
-  border-top:1px solid rgba(255,255,255,0.08);
-  padding:18px 20px;
+/* Right: form panel */
+.hero-form-panel{
+  background:var(--purple);
+  padding:56px 44px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
 }
-.stat{
-  padding:6px 28px;display:flex;flex-direction:column;align-items:center;
-  border-right:1px solid rgba(255,255,255,0.08);
+.hero-form-panel::before{
+  content:'';position:absolute;
+  width:400px;height:400px;border-radius:50%;
+  background:rgba(255,255,255,0.05);
+  top:-100px;right:-100px;pointer-events:none;
 }
-.stat:last-child{border-right:none}
-.stat-n{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1}
-.stat-n span{background:linear-gradient(90deg,var(--yellow),oklch(0.65 0.25 285));-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat-l{font-size:11px;color:rgba(255,255,255,0.42);font-weight:500;margin-top:3px;text-align:center}
+.hero-form-panel::after{
+  content:'';position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  bottom:-80px;left:-80px;pointer-events:none;
+}
 
-/* ============================================================
-   BELOW FOLD
-   ============================================================ */
-.wave{display:block;line-height:0}
-.wave svg{display:block;width:100%}
+.form-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);margin-bottom:14px;position:relative;z-index:1;
+}
+.form-headline{
+  font-size:24px;font-weight:900;line-height:1.20;
+  color:#fff;margin-bottom:8px;position:relative;z-index:1;
+}
+.form-sub{
+  font-size:14px;color:rgba(255,255,255,0.62);line-height:1.60;
+  margin-bottom:28px;position:relative;z-index:1;
+}
 
-.section{padding:80px 24px}
-.s-w{background:#fff}.s-off{background:#F5F4EE}
-.s-dark{background:linear-gradient(155deg,oklch(0.22 0.18 285) 0%,oklch(0.14 0.11 280) 100%)}
-.wrap{max-width:720px;margin:0 auto}
-.lbl{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:oklch(0.59 0.27 285);margin-bottom:10px}
-.lbl-y{color:oklch(0.85 0.19 87)}
-.ttl{font-size:clamp(24px,4.5vw,36px);font-weight:900;line-height:1.10;letter-spacing:-0.024em;color:#0D0D0D;margin-bottom:10px}
-.ttl-w{color:#fff}
-.body-t{font-size:16px;color:#666;line-height:1.72;margin-bottom:36px}
-.body-w{color:rgba(255,255,255,0.52)}
+.field{position:relative;margin-bottom:12px;z-index:1}
+.field label{
+  display:block;font-size:12px;font-weight:700;color:rgba(255,255,255,0.70);
+  margin-bottom:5px;letter-spacing:0.03em;
+}
+input{
+  width:100%;padding:13px 16px;
+  background:rgba(255,255,255,0.12);
+  border:1.5px solid rgba(255,255,255,0.22);
+  border-radius:var(--r);
+  color:#fff;font-size:15px;font-family:var(--f);font-weight:500;
+  outline:none;transition:all .18s;
+  -webkit-appearance:none;
+}
+input::placeholder{color:rgba(255,255,255,0.38)}
+input:focus{
+  background:rgba(255,255,255,0.18);
+  border-color:rgba(255,255,255,0.55);
+}
+
+.btn{
+  width:100%;margin-top:6px;
+  padding:16px 20px;
+  background:var(--yellow);
+  color:#1a1008;font-family:var(--f);font-size:15px;font-weight:800;
+  letter-spacing:0.04em;text-transform:uppercase;
+  border:none;border-radius:var(--r);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  position:relative;z-index:1;
+  transition:transform .18s,box-shadow .18s;
+  box-shadow:0 6px 20px rgba(0,0,0,0.20);
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,0.25)}
+.btn:active{transform:scale(0.97) translateY(0)}
+.btn svg{width:15px;height:15px;flex-shrink:0;transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
+
+.form-privacy{
+  font-size:11px;color:rgba(255,255,255,0.38);
+  text-align:center;margin-top:12px;position:relative;z-index:1;line-height:1.5;
+}
+
+/* ── SECTIONS ── */
+.section{padding:80px 48px}
+.s-white{background:#fff}
+.s-cream{background:var(--bg)}
+.s-dark{background:var(--dark)}
+.s-purple{background:var(--purple)}
+.wrap{max-width:880px;margin:0 auto}
+.wrap-sm{max-width:680px;margin:0 auto}
+
+.lbl{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
+.lbl-w{color:rgba(255,255,255,0.55)}
+.lbl-y{color:var(--yellow)}
+.sec-title{font-size:clamp(26px,4vw,38px);font-weight:900;line-height:1.10;letter-spacing:-0.025em;color:var(--dark);margin-bottom:12px}
+.sec-title-w{color:#fff}
+.sec-body{font-size:16px;color:var(--grey);line-height:1.72;margin-bottom:36px}
+.sec-body-w{color:rgba(255,255,255,0.58)}
 
 /* Lesson cards */
-.lc{margin-bottom:12px;background:#FAFAFA;border:1px solid rgba(0,0,0,0.05);border-radius:var(--r-md);padding:20px 22px;display:flex;gap:16px;align-items:flex-start;cursor:default;transition:all .22s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.lc:nth-child(1){border-left:3px solid oklch(0.59 0.27 285)}
-.lc:nth-child(2){border-left:3px solid oklch(0.68 0.17 188)}
-.lc:nth-child(3){border-left:3px solid #FAD825}
-.lc:nth-child(4){border-left:3px solid #1BEBA0}
-.lc:hover{transform:translateX(6px);box-shadow:0 6px 22px rgba(0,0,0,0.08)}
-.lc-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
-.lc:nth-child(1) .lc-ic{background:oklch(0.59 0.27 285)}
-.lc:nth-child(2) .lc-ic{background:oklch(0.68 0.17 188)}
-.lc:nth-child(3) .lc-ic{background:#e6c200;color:#1a1008}
-.lc:nth-child(4) .lc-ic{background:#1BEBA0;color:#0D0D0D}
-.lc-t{font-size:15px;font-weight:800;color:#111;margin-bottom:5px}
-.lc-b{font-size:13px;color:#777;line-height:1.60}
+.lesson-cards{display:flex;flex-direction:column;gap:16px}
+.lc{
+  background:var(--bg);border-radius:16px;
+  padding:24px 28px;
+  border-left:4px solid var(--purple);
+  transition:transform .20s,box-shadow .20s;cursor:default;
+}
+.lc:nth-child(2){border-left-color:var(--green)}
+.lc:nth-child(3){border-left-color:var(--yellow)}
+.lc:nth-child(4){border-left-color:#ff6b35}
+.lc:hover{transform:translateX(6px);box-shadow:0 8px 28px rgba(0,0,0,0.07)}
+.lc-num{font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple);margin-bottom:7px}
+.lc:nth-child(2) .lc-num{color:var(--green)}
+.lc:nth-child(3) .lc-num{color:#c4a200}
+.lc:nth-child(4) .lc-num{color:#ff6b35}
+.lc-title{font-size:17px;font-weight:800;color:var(--dark);margin-bottom:8px;line-height:1.30}
+.lc-body{font-size:14px;color:var(--grey);line-height:1.68}
 
 /* Proof cards */
-.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.pc{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-md);padding:22px;transition:all .22s;cursor:default}
-.pc:hover{background:rgba(255,255,255,0.11);transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,0.28)}
-.pc-q{font-size:13px;color:rgba(255,255,255,0.80);line-height:1.70;font-style:italic;margin-bottom:14px}
-.pc-n{font-size:13px;font-weight:800;color:#fff}
-.pc-c{font-size:11px;color:rgba(255,255,255,0.35);margin-top:3px;line-height:1.4}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.proof-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;padding:26px;transition:all .22s;cursor:default;
+}
+.proof-card:hover{background:rgba(255,255,255,0.10);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.20)}
+.proof-quote{font-size:14px;color:rgba(255,255,255,0.82);line-height:1.72;font-style:italic;margin-bottom:16px}
+.proof-name{font-size:14px;font-weight:800;color:#fff}
+.proof-ctx{font-size:12px;color:rgba(255,255,255,0.40);margin-top:3px;line-height:1.45}
 
-/* Second CTA */
-.cta2{text-align:center;margin-top:44px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.08)}
+.proof-disc{font-size:11px;color:rgba(255,255,255,0.28);margin-top:24px;text-align:center}
+
+/* 2nd CTA */
+.cta2-wrap{text-align:center;margin-top:52px;padding-top:44px;border-top:1px solid rgba(255,255,255,0.10)}
 .btn2{
   display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(135deg,#FAD825,#fcc218);
-  color:#1a1008;font-weight:800;font-size:14px;font-family:var(--f);
-  letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;
-  padding:15px 32px;border-radius:var(--r-sm);
-  box-shadow:0 8px 28px rgba(250,216,37,0.28);
+  background:var(--yellow);color:#1a1008;
+  font-family:var(--f);font-size:14px;font-weight:800;
+  letter-spacing:0.04em;text-transform:uppercase;
+  text-decoration:none;padding:16px 36px;border-radius:var(--r);
+  box-shadow:0 6px 20px rgba(250,216,37,0.25);
   transition:all .20s;
 }
-.btn2:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(250,216,37,0.45)}
-.disc{font-size:11px;color:rgba(255,255,255,0.28);margin-top:10px}
+.btn2:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(250,216,37,0.40)}
 
-footer{background:oklch(0.10 0.08 280);padding:30px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
-footer img{height:22px;opacity:.28;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;filter:brightness(0) invert(1)}
-footer p{font-size:11px;color:rgba(255,255,255,0.22);line-height:1.65;max-width:600px;margin:0 auto}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* Responsive */
-@media(max-width:600px){
-  .stats-strip{gap:0}
-  .stat{padding:6px 16px;border-right:none;border-bottom:1px solid rgba(255,255,255,0.08)}
-  .stat:last-child{border-bottom:none}
-  .stat-n{font-size:18px}
+footer{
+  background:var(--dark);padding:30px 48px;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  border-top:1px solid rgba(255,255,255,0.06);
 }
+footer img{height:22px;opacity:.28;filter:brightness(0) invert(1)}
+footer p{font-size:11px;color:rgba(255,255,255,0.22);line-height:1.65;max-width:640px;text-align:center}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-copy{padding:44px 24px 40px}
+  .hero-form-panel{padding:40px 24px}
+  .section{padding:60px 24px}
+  footer{padding:28px 24px}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="orb o1"></div>
-  <div class="orb o2"></div>
-  <div class="orb o3"></div>
-  <div class="orb o4"></div>
-  <div class="hero-grid"></div>
+<nav>
+  <div class="nav-logo"><img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact"></div>
+  <div class="nav-trust"><span class="nav-dot"></span> Free Training &mdash; 1,038+ Yoga Teachers Enrolled</div>
+</nav>
 
-  <nav>
-    <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact">
-  </nav>
-
-  <div class="hero-body">
+<div class="hero">
+  <!-- LEFT: COPY -->
+  <div class="hero-copy">
     <div class="eyebrow">
-      <span class="dot-live"></span>
+      <span class="eyebrow-dot"></span>
       Free Video Training &mdash; Yoga Teachers &amp; Wellness Coaches
     </div>
 
-    <h1>Stop Trading Hours<br>for Dollars. Build<br><span class="shimmer">$5K&ndash;$20K/Month.</span></h1>
+    <h1>You Built the Following.<br>Now Build <em>the Income</em><br>to Match.</h1>
 
-    <p class="sub">The exact 3-pillar system Daniel Rama used to go from 200K followers earning $500/month to $20K working 15 hrs/week from Thailand.</p>
+    <p class="hero-sub">Daniel Rama had 200,000 followers and was making $500 a month. He was eating peanut butter sandwiches, wondering why his audience wasn't paying his bills. This free training is the exact 3-pillar system he used to go from that to $20,000 a month &mdash; working 15 hours a week from Thailand.</p>
 
-    <div class="card">
-      <form action="vsl.html" method="GET">
-        <div class="field">
-          <i data-lucide="user" class="field-ic"></i>
-          <input type="text" placeholder="First name" required autocomplete="given-name">
-        </div>
-        <div class="field">
-          <i data-lucide="mail" class="field-ic"></i>
-          <input type="email" placeholder="Email address" required autocomplete="email">
-        </div>
-        <div class="field">
-          <i data-lucide="phone" class="field-ic"></i>
-          <input type="tel" placeholder="Phone number" required autocomplete="tel">
-        </div>
-        <button type="submit" class="btn">
-          <span class="btn-lbl">Watch the Free Training</span>
-          <i data-lucide="arrow-right" class="btn-arr"></i>
-        </button>
-      </form>
-      <p class="privacy">
-        <i data-lucide="lock" style="width:10px;height:10px"></i>
-        Your info is safe &mdash; we never share or spam
-      </p>
-    </div>
+    <ul class="hero-bullets">
+      <li>
+        <span class="bul-ic">1</span>
+        <span>Why follower count has almost nothing to do with income &mdash; and what the one real lever is that most teachers never figure out until it's too late.</span>
+      </li>
+      <li>
+        <span class="bul-ic">2</span>
+        <span>The 3-pillar Hybrid Coaching system &mdash; Positioning, Posting, and Pricing &mdash; in the exact sequence that produces results instead of more "almost there" moments.</span>
+      </li>
+      <li>
+        <span class="bul-ic">3</span>
+        <span>Why the $200&ndash;$500 price range is the exact sweet spot for yoga teachers building online right now, and how 1,038+ teachers across 47 countries have used it to finally get paid what they're worth.</span>
+      </li>
+    </ul>
 
     <div class="trust-row">
       <div class="avatars">
-        <div class="av"><img src="https://i.pravatar.cc/68?img=1" alt="" loading="lazy"></div>
-        <div class="av"><img src="https://i.pravatar.cc/68?img=5" alt="" loading="lazy"></div>
-        <div class="av"><img src="https://i.pravatar.cc/68?img=9" alt="" loading="lazy"></div>
-        <div class="av"><img src="https://i.pravatar.cc/68?img=15" alt="" loading="lazy"></div>
-        <div class="av"><img src="https://i.pravatar.cc/68?img=20" alt="" loading="lazy"></div>
+        <div class="av"><img src="https://i.pravatar.cc/64?img=1" alt="" loading="lazy"></div>
+        <div class="av"><img src="https://i.pravatar.cc/64?img=5" alt="" loading="lazy"></div>
+        <div class="av"><img src="https://i.pravatar.cc/64?img=9" alt="" loading="lazy"></div>
+        <div class="av"><img src="https://i.pravatar.cc/64?img=15" alt="" loading="lazy"></div>
+        <div class="av"><img src="https://i.pravatar.cc/64?img=20" alt="" loading="lazy"></div>
       </div>
-      <p class="tr-text">Joined by <strong>1,038+ teachers</strong> across <strong>47 countries</strong></p>
-      <span class="tr-sep"></span>
-      <span class="free-badge">&#9679; 100% free</span>
+      <p class="trust-text">Joined by <strong>1,038+ teachers</strong> across <strong>47 countries</strong></p>
     </div>
   </div>
 
-  <div class="stats-strip">
-    <div class="stat"><span class="stat-n"><span>$33K</span></span><span class="stat-l">in 5 days (David G.)</span></div>
-    <div class="stat"><span class="stat-n"><span>200K+</span></span><span class="stat-l">followers built</span></div>
-    <div class="stat"><span class="stat-n"><span>$20K</span></span><span class="stat-l">monthly (Daniel R.)</span></div>
-    <div class="stat"><span class="stat-n"><span>47</span></span><span class="stat-l">countries represented</span></div>
-  </div>
-</section>
+  <!-- RIGHT: FORM PANEL -->
+  <div class="hero-form-panel">
+    <p class="form-eyebrow">Watch the free training</p>
+    <h2 class="form-headline">Enter your details and we'll take you straight to the training.</h2>
+    <p class="form-sub">It's completely free. No credit card. No catch. Just the system.</p>
 
-<!-- White wave -->
-<div class="wave" style="background:oklch(0.14 0.11 280)">
-  <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,28 C360,56 1080,0 1440,28 L1440,56 L0,56 Z" fill="#FFFFFF"/></svg>
+    <form action="vsl.html" method="GET">
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" name="fname" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="Your phone number" required autocomplete="tel">
+      </div>
+      <button type="submit" class="btn">
+        Watch the Free Training
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </form>
+    <p class="form-privacy">Your information is private and will never be shared or sold.</p>
+  </div>
 </div>
 
-<!-- What you'll learn -->
-<section class="section s-w">
-  <div class="wrap">
+<!-- WHAT YOU'LL LEARN -->
+<section class="section s-white">
+  <div class="wrap-sm">
     <p class="lbl">Inside the free training</p>
-    <h2 class="ttl">What Daniel walks you through:</h2>
-    <p class="body-t">No motivation. No fluff. The actual system, in the order that it works.</p>
-
-    <div class="lc">
-      <div class="lc-ic"><i data-lucide="target" style="width:18px;height:18px"></i></div>
-      <div>
-        <p class="lc-t">Why 200,000 followers wasn't enough</p>
-        <p class="lc-b">Daniel had the audience everyone tells you to build. It didn't pay the bills. You'll understand exactly why &mdash; and what the real lever is.</p>
+    <h2 class="sec-title">What Daniel walks you through &mdash; and why it's different from everything else you've tried.</h2>
+    <p class="sec-body">This isn't motivation. It isn't a "mindset shift." It's a specific system with a specific sequence, built specifically for yoga teachers who already have the expertise and just need the business model that makes it pay.</p>
+    <div class="lesson-cards">
+      <div class="lc">
+        <p class="lc-num">Part 01 &mdash; The Root Cause</p>
+        <p class="lc-title">Why your follower count isn't your problem &mdash; and isn't your solution either</p>
+        <p class="lc-body">Daniel had 200,000 followers and couldn't pay his rent. The platform didn't fail him &mdash; the system did. In this section, he breaks down why "grow your audience" is incomplete advice, and what the actual driver of yoga teacher income is in 2026.</p>
       </div>
-    </div>
-    <div class="lc">
-      <div class="lc-ic"><i data-lucide="compass" style="width:18px;height:18px"></i></div>
-      <div>
-        <p class="lc-t">Direction Positioning: pick your lane and own it</p>
-        <p class="lc-b">Not "find your niche." That advice is incomplete. Debbie used this to grow from 1,700 to 200,000 followers. Katrin added $5-10K/month within 4-6 months doing pre/postnatal yoga.</p>
+      <div class="lc">
+        <p class="lc-num">Part 02 &mdash; Positioning</p>
+        <p class="lc-title">Stop teaching yoga for everyone. Own one corner and watch what happens.</p>
+        <p class="lc-body">Debbie Moser went from 1,700 to 200,000 followers in 3 months once she stopped being a "general yoga teacher" and owned her specific corner. Katrin Oswald added $5&ndash;10K per month to her income in 4&ndash;6 months doing the same thing in the pre/postnatal yoga space. Direction Positioning is the first pillar &mdash; and the one most teachers get backwards.</p>
       </div>
-    </div>
-    <div class="lc">
-      <div class="lc-ic"><i data-lucide="trending-up" style="width:18px;height:18px"></i></div>
-      <div>
-        <p class="lc-t">Content Modeling: build buyers, not just followers</p>
-        <p class="lc-b">You don't need to create from scratch. You need to find what's already working and make it yours. This is the most duplicatable content strategy for yoga teachers in 2026.</p>
+      <div class="lc">
+        <p class="lc-num">Part 03 &mdash; Posting</p>
+        <p class="lc-title">The content strategy that builds buyers, not just followers</p>
+        <p class="lc-body">You don't need to create more content. You need to create the right content &mdash; the kind that attracts people who actually want to invest in working with you. Content Modeling is the framework for finding what's already working in your space and making it authentically yours. It's how you build an audience of buyers in 2026, not just an audience.</p>
       </div>
-    </div>
-    <div class="lc">
-      <div class="lc-ic"><i data-lucide="dollar-sign" style="width:18px;height:18px"></i></div>
-      <div>
-        <p class="lc-t">Mid-ticket pricing: why $200-$500 is the exact sweet spot</p>
-        <p class="lc-b">High enough to make real money from a small audience. Accessible enough that buyers don't hesitate. David generated $33,371 in 5 days from a $299 offer &mdash; Ashtanga teacher, 2+ years in Impact Academy.</p>
+      <div class="lc">
+        <p class="lc-num">Part 04 &mdash; Pricing</p>
+        <p class="lc-title">Why $200&ndash;$500 is the exact pricing sweet spot right now &mdash; and how to get there</p>
+        <p class="lc-body">High enough to generate real income from a small audience. Accessible enough that buyers don't need to "think about it." David Garrigues generated $33,371 in 5 days from a $299 offer &mdash; that's not luck, that's the mid-ticket sweet spot working the way it's designed to. This section shows you the math and the logic behind it.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Dark wave -->
-<div class="wave" style="background:#fff">
-  <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0 C480,50 960,0 1440,24 L1440,50 L0,50 Z" fill="oklch(0.22 0.18 285)"/></svg>
-</div>
-
-<!-- Proof -->
+<!-- PROOF -->
 <section class="section s-dark">
   <div class="wrap">
-    <p class="lbl lbl-y">Real teachers. Real outcomes.</p>
-    <h2 class="ttl ttl-w">1,038+ teachers have proven this works.</h2>
-    <p class="body-t body-w">Across 47 countries. Different niches. Different starting points. Same system.</p>
-    <div class="pg">
-      <div class="pc"><p class="pc-q">"I went from 1,700 followers to over 200,000 and built a real business around something I'd always taught but never knew how to monetize."</p><p class="pc-n">Debbie M.</p><p class="pc-c">Back-pain relief yoga &middot; from 1.7K followers</p></div>
-      <div class="pc"><p class="pc-q">"$33,371 in five days from a single $299 offer. I had the reputation. I just didn't have the system."</p><p class="pc-n">David G.</p><p class="pc-c">Ashtanga yoga &middot; 2+ years in Impact Academy</p></div>
-      <div class="pc"><p class="pc-q">"$150/month to over $17,000 in sales in 12 months. I almost quit teaching yoga online entirely. The call changed everything."</p><p class="pc-n">Jenelle L.</p><p class="pc-c">Yoga teacher &middot; 12 months in program</p></div>
+    <p class="lbl lbl-y">Real teachers. Real results.</p>
+    <h2 class="sec-title sec-title-w">1,038 yoga teachers have already proven this system works.</h2>
+    <p class="sec-body sec-body-w">Across 47 countries. Different niches, different starting points, different timelines. The same system.</p>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <p class="proof-quote">"I went from 1,700 followers to over 200,000 in 3 months. And more importantly, I finally built a real business around something I'd always taught but never knew how to monetize."</p>
+        <p class="proof-name">Debbie Moser</p>
+        <p class="proof-ctx">Back-pain relief yoga &middot; Impact Academy &middot; 3 months &middot; started at 1.7K followers</p>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"$33,371 in five days from a single $299 offer. I'd been teaching Ashtanga for years and had the reputation. I just didn't have the system to turn that reputation into income."</p>
+        <p class="proof-name">David Garrigues</p>
+        <p class="proof-ctx">Ashtanga yoga &middot; Impact Academy &middot; 5-day launch &middot; 26-28K followers &middot; 2+ years in program</p>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"I was making about $150 a month and two weeks away from quitting altogether. Twelve months later I had over $17,000 in sales and an audience that actually wanted to buy from me."</p>
+        <p class="proof-name">Jenelle Leat</p>
+        <p class="proof-ctx">Yoga teacher &middot; Impact Academy &middot; 12 months &middot; started at ~$150/month</p>
+      </div>
     </div>
-    <div class="cta2">
+    <p class="proof-disc">Results shared by real Impact Academy members who completed the full program. Individual outcomes vary based on niche, starting point, time invested, and effort. These are not typical results and should not be interpreted as a guarantee of income.</p>
+    <div class="cta2-wrap">
       <a href="vsl.html" class="btn2">Watch the Free Training &rarr;</a>
-      <p class="disc">Results vary by starting point, niche, effort, and time invested.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact">
-  <p>&copy; 2026 Impact Me All &middot; Results shared by real program participants. Individual results vary based on niche, starting point, effort, consistency, and time invested. Not a guarantee of income.</p>
+  <p>&copy; 2026 Impact Me All. All results shared on this page are from real program participants. Individual results vary based on niche, starting point, effort level, consistency, and time invested. Nothing on this page constitutes a guarantee of income or specific outcomes.</p>
 </footer>
 
-<script>lucide.createIcons()</script>
 </body>
 </html>
