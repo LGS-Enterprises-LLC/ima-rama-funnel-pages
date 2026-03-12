@@ -3,385 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Call Is Confirmed - Impact</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Your Call Is Confirmed &mdash; Impact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
-  * { -webkit-font-smoothing: antialiased; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; background: #F5F4EE; }
-  .grad-hero { background: linear-gradient(135deg, #0D0D0D 0%, #1a0533 50%, #0D0D0D 100%); }
-  .grad-purple { background: linear-gradient(135deg, #6100FF 0%, #4a00c4 100%); }
-  .glow-purple { box-shadow: 0 0 30px rgba(97,0,255,0.5); }
-  .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-  .glass-light { background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border: 1px solid rgba(97,0,255,0.15); }
-  .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; }
-  .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-  .video-placeholder-sm { position: relative; padding-bottom: 56.25%; background: #1a1a1a; border-radius: 12px; overflow: hidden; }
-  .video-placeholder-sm .inner { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
-  .sticky-banner { position: sticky; top: 0; z-index: 50; }
-  .testimonial-card { transition: all 0.3s ease; }
-  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --purple: oklch(0.47 0.31 278);
+  --yellow: #FAD825;
+  --green: #1BEBA0;
+  --font: 'Inter', -apple-system, sans-serif;
+  --radius-md: 14px; --radius-lg: 20px;
+}
+html { -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font); background: #F5F4EE; overflow-x: hidden; }
+
+/* STICKY BANNER */
+.urgency-banner {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--yellow);
+  padding: 11px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+.urgency-banner p {
+  font-size: 13px; font-weight: 700; color: #1a1a1a;
+  display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
+}
+.urgency-banner a { color: #1a1a1a; text-decoration: underline; font-weight: 800; }
+
+/* HEADER */
+.header-dark {
+  background: linear-gradient(160deg, oklch(0.28 0.22 285) 0%, oklch(0.18 0.14 290) 100%);
+  position: relative; overflow: hidden;
+}
+.header-dark::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 60% -20%, oklch(0.55 0.30 275 / 0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+nav { position: relative; z-index: 5; padding: 22px 24px; display: flex; justify-content: center; }
+nav img { height: 28px; }
+.hero-top { position: relative; z-index: 5; max-width: 600px; margin: 0 auto; padding: 16px 24px 20px; text-align: center; }
+.contrast-text { font-size: 14px; color: rgba(255,255,255,0.50); line-height: 1.65; margin-bottom: 28px; }
+.confirmed-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(27,235,160,0.15); border: 1px solid rgba(27,235,160,0.35);
+  border-radius: var(--radius-md); padding: 10px 20px;
+  font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 12px;
+}
+.hero-headline {
+  font-size: clamp(32px, 5vw, 48px); font-weight: 900; line-height: 1.10;
+  letter-spacing: -0.025em; color: white; margin-bottom: 12px;
+}
+.hero-sub { font-size: 16px; color: rgba(255,255,255,0.60); line-height: 1.6; padding-bottom: 40px; }
+
+/* VIDEO SECTION */
+.video-section { background: #0D0D0D; padding: 0 0 8px; }
+.video-intro { max-width: 680px; margin: 0 auto; padding: 32px 24px 20px; text-align: center; }
+.video-intro p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 6px; }
+.video-intro strong { color: white; }
+.video-wrapper { max-width: 780px; margin: 0 auto; position: relative; background: #111; aspect-ratio: 16/9; overflow: hidden; }
+.video-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1040 100%);
+}
+.play-btn { width: 64px; height: 64px; background: oklch(0.47 0.31 278); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 12px oklch(0.47 0.31 278 / 0.18), 0 0 30px oklch(0.47 0.31 278 / 0.45); cursor: pointer; transition: all 0.2s; }
+.play-btn:hover { transform: scale(1.08); }
+.video-tag { font-size: 11px; color: rgba(255,255,255,0.30); font-family: var(--font); }
+.video-footer { max-width: 680px; margin: 0 auto; padding: 24px 24px 12px; text-align: center; }
+.video-footer p { font-size: 14px; color: rgba(255,255,255,0.50); line-height: 1.65; margin-bottom: 10px; }
+.video-footer strong { color: rgba(255,255,255,0.80); }
+.rewatch { display: inline-flex; align-items: center; gap: 6px; color: oklch(0.60 0.30 278); font-size: 14px; font-weight: 600; text-decoration: none; padding: 10px 0 24px; transition: all 0.15s; }
+.rewatch:hover { color: var(--yellow); }
+
+/* BREAKOUT VIDEOS */
+.breakout-section { background: white; padding: 72px 24px; }
+.inner { max-width: 860px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: oklch(0.47 0.31 278); margin-bottom: 12px; }
+.section-title { font-size: clamp(22px, 4vw, 32px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: #0D0D0D; margin-bottom: 10px; }
+.section-sub { font-size: 15px; color: #666; line-height: 1.65; margin-bottom: 40px; }
+.breakout-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.breakout-card {
+  background: #F5F4EE; border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(97,0,255,0.08);
+  transition: all 0.2s;
+}
+.breakout-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(97,0,255,0.12); }
+.breakout-video-ph {
+  aspect-ratio: 16/9; background: linear-gradient(135deg, #1a1040, #0f0c28);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  position: relative;
+}
+.bv-play { width: 44px; height: 44px; background: oklch(0.47 0.31 278 / 0.85); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.bv-tag { font-size: 10px; color: rgba(255,255,255,0.30); font-family: var(--font); }
+.breakout-label { padding: 14px 16px; font-size: 13px; font-weight: 700; color: #111; line-height: 1.4; }
+
+/* TESTIMONIALS */
+.testimonials-section {
+  background: linear-gradient(160deg, oklch(0.28 0.22 285) 0%, oklch(0.16 0.12 290) 100%);
+  padding: 80px 24px;
+}
+.proof-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,216,37,0.75); margin-bottom: 12px; }
+.proof-headline {
+  font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: white;
+  letter-spacing: -0.025em; line-height: 1.12; margin-bottom: 10px;
+}
+.proof-sub { font-size: 15px; color: rgba(255,255,255,0.50); margin-bottom: 8px; }
+.proof-context-note { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 44px; font-style: italic; }
+.yt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.yt-card { border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(255,255,255,0.10); transition: all 0.25s; background: rgba(0,0,0,0.30); }
+.yt-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.40); border-color: rgba(255,255,255,0.20); }
+.yt-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.yt-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+.yt-label { padding: 12px 14px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.75); letter-spacing: 0.03em; line-height: 1.3; }
+
+/* SIGN OFF */
+.signoff-section { background: white; padding: 64px 24px; text-align: center; }
+.signoff-inner { max-width: 520px; margin: 0 auto; }
+.disclaimer-text { font-size: 11px; color: #bbb; line-height: 1.7; margin-bottom: 36px; border-top: 1px solid #eee; padding-top: 24px; }
+.signoff-headline { font-size: clamp(24px, 4vw, 32px); font-weight: 900; color: #0D0D0D; letter-spacing: -0.02em; margin-bottom: 10px; }
+.signoff-body { font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 10px; }
+.signoff-name { font-size: 17px; font-weight: 800; color: #111; margin-top: 20px; }
+.heart { font-size: 22px; }
+
+footer { background: #0D0D0D; padding: 28px 24px; text-align: center; }
+footer img { height: 22px; opacity: 0.35; margin-bottom: 12px; display: block; margin-left: auto; margin-right: auto; }
+footer p { font-size: 11px; color: rgba(255,255,255,0.25); line-height: 1.6; max-width: 580px; margin: 0 auto; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.anim-1 { animation: fadeUp 0.55s ease-out both; }
+.anim-2 { animation: fadeUp 0.55s 0.10s ease-out both; }
+.anim-3 { animation: fadeUp 0.55s 0.20s ease-out both; }
 </style>
 </head>
 <body>
 
 <!-- STICKY URGENCY BANNER -->
-<div class="sticky-banner bg-[#FAD825] py-3 px-4">
-  <div class="max-w-4xl mx-auto text-center">
-    <p class="text-[#0D0D0D] font-bold text-sm md:text-base">
-      ⚠️ <strong>Heads up</strong> - your free Hybrid Coaching training will disappear once you close this window. 
-      <a href="vsl.html" class="underline font-black">Watch it now</a> or use the link below to rewatch it before your call.
-    </p>
-  </div>
+<div class="urgency-banner">
+  <p>
+    <i data-lucide="alert-triangle" style="width:14px;height:14px;flex-shrink:0;"></i>
+    <span>Heads up &mdash; your free Hybrid Coaching training disappears when you close this window.</span>
+    <a href="vsl.html">Watch it again here &rarr;</a>
+  </p>
 </div>
 
 <!-- HEADER -->
-<div class="grad-hero">
-  <div class="max-w-5xl mx-auto px-4 py-5 flex justify-center">
-    <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" class="h-8">
-  </div>
-
-  <!-- SUB-TEXT -->
-  <div class="max-w-2xl mx-auto px-4 pt-4 pb-2 text-center">
-    <p class="text-white/60 text-base leading-relaxed">
+<div class="header-dark">
+  <nav><img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact"></nav>
+  <div class="hero-top">
+    <p class="contrast-text anim-1">
       3 months from now, you could be one of the success stories below.<br>
       Or you could be exactly where you are right now.<br>
-      <strong class="text-white/80">The difference is what you do next.</strong>
+      <strong style="color:rgba(255,255,255,0.80);">The difference is what you do next.</strong>
     </p>
-  </div>
-
-  <!-- CONFIRMATION HEADLINE -->
-  <div class="max-w-3xl mx-auto px-4 pt-6 pb-12 text-center">
-    <div class="inline-flex items-center gap-3 mb-4">
-      <span class="text-4xl">✅</span>
-      <h1 class="text-white text-3xl md:text-5xl font-black">YOUR CALL IS CONFIRMED.</h1>
+    <div class="anim-2">
+      <div class="confirmed-badge">
+        <i data-lucide="check-circle-2" style="width:16px;height:16px;"></i>
+        Your Call Is Confirmed
+      </div>
     </div>
-    <p class="text-white/70 text-xl">One important thing before we meet - watch this short video below.</p>
+    <h1 class="hero-headline anim-2">One thing before we meet.</h1>
+    <p class="hero-sub anim-3">Watch Daniel's short video below &mdash; it's less than 5 minutes and it'll make your call significantly more valuable.</p>
   </div>
 </div>
 
 <!-- CONFIRMATION VIDEO -->
-<div class="bg-[#0D0D0D] py-10 px-4">
-  <div class="max-w-3xl mx-auto">
-    <p class="text-white/70 text-center text-base mb-6 leading-relaxed">
-      Daniel walks you through exactly what to expect on your call, what you should prepare, and how to make the most of the 30 minutes you'll have together.<br>
-      <strong class="text-white">It's less than 5 minutes. Watch it now.</strong>
-    </p>
-
-    <!-- CONFIRMATION VIDEO PLACEHOLDER -->
-    <div class="video-placeholder-sm mb-6" style="min-height:300px;">
-      <div class="inner">
-        <div style="width:70px;height:70px;background:rgba(97,0,255,0.8);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(97,0,255,0.6);">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <p class="text-white/50 text-sm">[ CONFIRMATION_VIDEO_PLACEHOLDER ]</p>
-        <p class="text-white/30 text-xs">Replace with Daniel's pre-call welcome video</p>
+<div class="video-section">
+  <div class="video-intro">
+    <p>Daniel walks you through exactly what to expect on your call, what to prepare, and how to make the most of the 30 minutes you'll have together.</p>
+    <p><strong>It's less than 5 minutes. Watch it now.</strong></p>
+  </div>
+  <div class="video-wrapper">
+    <div class="video-placeholder">
+      <div class="play-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
       </div>
+      <p class="video-tag">[ CONFIRMATION_VIDEO_PLACEHOLDER ]</p>
     </div>
-
-    <p class="text-white/60 text-base text-center leading-relaxed mb-3">Your call is with someone from Daniel's team at Impact.</p>
-    <p class="text-white/60 text-base text-center leading-relaxed mb-3">They've worked with over 1,000 yoga teachers and wellness coaches across 47 countries.</p>
-    <p class="text-white/60 text-base text-center leading-relaxed mb-6">They're not going to pressure you. They're going to listen, diagnose your specific situation, and tell you honestly whether the Hybrid Coaching system is the right next step - or not.</p>
-    <p class="text-white font-bold text-center text-lg">Show up. Be honest about where you are. That's all you need to do.</p>
-
-    <div class="text-center mt-8">
-      <a href="vsl.html" class="inline-flex items-center gap-2 text-[#6100FF] font-bold text-base hover:text-[#FAD825] transition-colors">
-        <span>👉</span> Want to rewatch the full Hybrid Coaching training before your call? Watch it here →
-      </a>
-    </div>
+  </div>
+  <div class="video-footer">
+    <p>Your call is with someone from Daniel's team at Impact. They've worked with over <strong>1,000 yoga teachers across 47 countries.</strong></p>
+    <p>They're not going to pressure you. They're going to listen, diagnose your specific situation, and tell you honestly whether the Hybrid Coaching system is the right next step &mdash; or not.</p>
+    <p style="color:white; font-weight:700; margin-top:14px; font-size:15px;">Show up. Be honest about where you are. That's all you need to do.</p>
+    <a href="vsl.html" class="rewatch">
+      <i data-lucide="play-circle" style="width:16px;height:16px;"></i>
+      Rewatch the full training before your call &rarr;
+    </a>
   </div>
 </div>
 
 <!-- BREAKOUT VIDEOS -->
-<div class="bg-[#F5F4EE] py-16 px-4">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-[#0D0D0D] text-2xl md:text-3xl font-black text-center mb-3">Got questions before your call?</h2>
-    <h2 class="text-[#0D0D0D] text-2xl md:text-3xl font-black text-center mb-4">Daniel answers the most common ones below.</h2>
-    <p class="text-[#555] text-center text-lg mb-10 max-w-2xl mx-auto">These are the questions we hear most often before a Clarity Call. Watch the ones that apply to you. It'll make your call more useful.</p>
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-      <!-- Breakout 1 -->
-      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
-        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
-          <div class="inner">
-            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_1_PLACEHOLDER ]</p>
-          </div>
+<section class="breakout-section">
+  <div class="inner">
+    <p class="section-label">Questions before your call?</p>
+    <h2 class="section-title">Daniel answers the most common ones below.</h2>
+    <p class="section-sub">Watch the ones that apply to your situation. You'll arrive at your call already knowing what's real, what's possible, and what to expect.</p>
+    <div class="breakout-grid">
+      <div class="breakout-card">
+        <div class="breakout-video-ph">
+          <div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="bv-tag">[ BREAKOUT_VIDEO_1_PLACEHOLDER ]</p>
         </div>
-        <div class="p-5">
-          <p class="font-black text-[#0D0D0D] text-base">"What If This Doesn't Work For Me?"</p>
-        </div>
+        <p class="breakout-label">"What If This Doesn't Work For Me?"</p>
       </div>
-
-      <!-- Breakout 2 -->
-      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
-        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
-          <div class="inner">
-            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_2_PLACEHOLDER ]</p>
-          </div>
+      <div class="breakout-card">
+        <div class="breakout-video-ph">
+          <div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="bv-tag">[ BREAKOUT_VIDEO_2_PLACEHOLDER ]</p>
         </div>
-        <div class="p-5">
-          <p class="font-black text-[#0D0D0D] text-base">"Why Does This Cost What It Costs?"</p>
-        </div>
+        <p class="breakout-label">"Why Does This Cost What It Costs?"</p>
       </div>
-
-      <!-- Breakout 3 -->
-      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
-        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
-          <div class="inner">
-            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_3_PLACEHOLDER ]</p>
-          </div>
+      <div class="breakout-card">
+        <div class="breakout-video-ph">
+          <div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="bv-tag">[ BREAKOUT_VIDEO_3_PLACEHOLDER ]</p>
         </div>
-        <div class="p-5">
-          <p class="font-black text-[#0D0D0D] text-base">"I'm Not Tech-Savvy - Can I Still Do This?"</p>
-        </div>
+        <p class="breakout-label">"I'm Not Tech-Savvy &mdash; Can I Still Do This?"</p>
       </div>
-
-      <!-- Breakout 4 -->
-      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
-        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
-          <div class="inner">
-            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_4_PLACEHOLDER ]</p>
-          </div>
+      <div class="breakout-card">
+        <div class="breakout-video-ph">
+          <div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="bv-tag">[ BREAKOUT_VIDEO_4_PLACEHOLDER ]</p>
         </div>
-        <div class="p-5">
-          <p class="font-black text-[#0D0D0D] text-base">"How Long Before I See Results?"</p>
-        </div>
+        <p class="breakout-label">"How Long Before I See Results?"</p>
       </div>
-
-      <!-- Breakout 5 -->
-      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
-        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
-          <div class="inner">
-            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_5_PLACEHOLDER ]</p>
-          </div>
+      <div class="breakout-card">
+        <div class="breakout-video-ph">
+          <div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="bv-tag">[ BREAKOUT_VIDEO_5_PLACEHOLDER ]</p>
         </div>
-        <div class="p-5">
-          <p class="font-black text-[#0D0D0D] text-base">"Is This Just Another Course?"</p>
-        </div>
+        <p class="breakout-label">"Is This Just Another Course?"</p>
       </div>
-
-      <!-- Breakout 6 -->
-      <div class="glass-light rounded-2xl overflow-hidden shadow-md">
-        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
-          <div class="inner">
-            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_6_PLACEHOLDER ]</p>
-          </div>
+      <div class="breakout-card">
+        <div class="breakout-video-ph">
+          <div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="bv-tag">[ BREAKOUT_VIDEO_6_PLACEHOLDER ]</p>
         </div>
-        <div class="p-5">
-          <p class="font-black text-[#0D0D0D] text-base">"What Makes Impact Different?"</p>
-        </div>
+        <p class="breakout-label">"What Makes Impact Different?"</p>
       </div>
-
-      <!-- Breakout 7 - full width -->
-      <div class="glass-light rounded-2xl overflow-hidden shadow-md md:col-span-2 max-w-md mx-auto w-full">
-        <div class="video-placeholder-sm" style="min-height:200px;background:#111;">
-          <div class="inner">
-            <div style="width:50px;height:50px;background:rgba(97,0,255,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white/40 text-xs">[ BREAKOUT_VIDEO_7_PLACEHOLDER ]</p>
-          </div>
+      <div class="breakout-card" style="grid-column: span 1;">
+        <div class="breakout-video-ph">
+          <div class="bv-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="bv-tag">[ BREAKOUT_VIDEO_7_PLACEHOLDER ]</p>
         </div>
-        <div class="p-5">
-          <p class="font-black text-[#0D0D0D] text-base">"Real Talk: Who Is This NOT For?"</p>
-        </div>
+        <p class="breakout-label">"Real Talk: Who Is This NOT For?"</p>
       </div>
-
     </div>
   </div>
-</div>
+</section>
 
-<!-- TESTIMONIALS SECTION -->
-<div class="grad-hero py-16 px-4">
-  <div class="max-w-5xl mx-auto">
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="inner" style="max-width:900px;">
+    <p class="proof-eyebrow">1,038+ teachers can't be wrong</p>
+    <h2 class="proof-headline">See What Teachers Like You Have Built</h2>
+    <p class="proof-sub">Not easy. Not guaranteed. Not overnight.</p>
+    <p class="proof-context-note">But possible &mdash; if you know what you're doing. These are real teachers. Real situations. Real outcomes.</p>
 
-    <h2 class="text-white text-3xl md:text-5xl font-black text-center mb-4">See What 1,038+ Teachers Like You<br>Have to Say About Impact</h2>
-    <p class="text-white/60 text-lg text-center mb-4 max-w-2xl mx-auto">Here's your proof that building a thriving online teaching business in 2026 is possible.</p>
-    <p class="text-white/50 text-base text-center mb-12 max-w-2xl mx-auto">Not easy. Not guaranteed. Not overnight.<br>But possible - if you know what you're doing.</p>
-
-    <!-- 2-column grid for testimonials -->
-    <div class="grid md:grid-cols-2 gap-6">
-
-      <!-- Testimonial 1 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/eHwlES7liVU" loading="lazy" allowfullscreen title="Testimonial 1"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"YOU HELPED ME TURN IT AROUND."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/v3z7fsg8mcI" loading="lazy" allowfullscreen title="Testimonial 2"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I MADE OVER $17,000"</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/_NJYwoksR0M" loading="lazy" allowfullscreen title="Testimonial 3"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I WOULD JUST SHOW THEM MY BANK STATEMENT..."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 4 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/KZpu8FvFgvE" loading="lazy" allowfullscreen title="Testimonial 4"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"$10,000 ADDITIONAL INCOME IN A SINGLE MONTH"</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 5 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/2qP-XKJ_zG0" loading="lazy" allowfullscreen title="Testimonial 5"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"WE GOT A CRAZY AMOUNT OF SIGNUPS."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 6 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/emvdrVcFk-Q" loading="lazy" allowfullscreen title="Testimonial 6"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I SKYROCKETED TO $20,000 IN THE FIRST 4 WEEKS."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 7 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/ZwjkT_Bz-dM" loading="lazy" allowfullscreen title="Testimonial 7"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I WENT FROM 1.5K TO OVER 200,000 FOLLOWERS."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 8 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/bjMuN4Lcu8Q" loading="lazy" allowfullscreen title="Testimonial 8"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I FINALLY BUILT A PURPOSEFUL ONLINE PRESENCE"</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 9 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/OAVjOKKSe54" loading="lazy" allowfullscreen title="Testimonial 9"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I LEARNED TO BE A BETTER YOGI."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 10 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/bk3hxghs62M" loading="lazy" allowfullscreen title="Testimonial 10"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I ADDED 280,000 YOUTUBE SUBSCRIBERS."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 11 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/J9Es4Z0lPA0" loading="lazy" allowfullscreen title="Testimonial 11"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"NOT A BAD DECISION... RIGHT?"</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 12 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/IXpyl2cX8w8" loading="lazy" allowfullscreen title="Testimonial 12"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"OH MY GOSH! SUCH A BIG HELP."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 13 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/tQJ8THlcLK4" loading="lazy" allowfullscreen title="Testimonial 13"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I NEVER ACQUIRED SO MANY LEADS."</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 14 -->
-      <div class="testimonial-card glass rounded-2xl overflow-hidden">
-        <div class="video-responsive">
-          <iframe src="https://www.youtube.com/embed/u0WFu6NWEYU" loading="lazy" allowfullscreen title="Testimonial 14"></iframe>
-        </div>
-        <div class="p-4">
-          <p class="text-white font-black text-sm">"I GREW MY AUDIENCE TO 74,000 FOLLOWERS."</p>
-        </div>
-      </div>
-
+    <div class="yt-grid">
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/eHwlES7liVU" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"You Helped Me Turn It Around."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/v3z7fsg8mcI" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Made Over $17,000"</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/_NJYwoksR0M" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I'd Just Show Them My Bank Statement."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/KZpu8FvFgvE" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"$10,000 Additional Income in a Single Month"</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/2qP-XKJ_zG0" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"We Got a Crazy Amount of Signups."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/emvdrVcFk-Q" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Skyrocketed to $20,000 in 4 Weeks."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/ZwjkT_Bz-dM" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Went from 1.5K to 200,000 Followers."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/bjMuN4Lcu8Q" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Finally Built a Purposeful Presence"</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/OAVjOKKSe54" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Learned to Be a Better Yogi."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/bk3hxghs62M" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Added 280,000 YouTube Subscribers."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/J9Es4Z0lPA0" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"Not a Bad Decision... Right?"</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/IXpyl2cX8w8" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"Oh My Gosh! Such a Big Help."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/tQJ8THlcLK4" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Never Acquired So Many Leads."</p></div>
+      <div class="yt-card"><div class="yt-video"><iframe src="https://www.youtube.com/embed/u0WFu6NWEYU" loading="lazy" allowfullscreen title="Testimonial"></iframe></div><p class="yt-label">"I Grew My Audience to 74,000 Followers."</p></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- COMPLIANCE + FINAL SIGN-OFF -->
-<div class="bg-[#F5F4EE] py-12 px-4">
-  <div class="max-w-2xl mx-auto text-center">
-    <p class="text-[#999] text-xs leading-relaxed mb-10">The results shared on this page are from real Impact Academy members who participated in the full program. Individual results vary based on starting point, niche, effort level, consistency, and time invested. These outcomes are not typical and should not be interpreted as a guarantee of what you will achieve. Impact and income grow together - but they require work.</p>
-
-    <h2 class="text-[#0D0D0D] text-3xl font-black mb-3">Your call is booked.</h2>
-    <p class="text-[#555] text-lg leading-relaxed mb-4">We've got your spot saved.</p>
-    <p class="text-[#555] text-base leading-relaxed mb-8">Check your inbox for your confirmation email - it'll have the call details, a reminder, and a link back to this page in case you want to rewatch anything before we meet.</p>
-    <p class="text-[#0D0D0D] text-xl font-black mb-2">We'll see you soon. 💙</p>
-    <p class="text-[#555]">- Daniel & The Impact Team</p>
+<!-- SIGN OFF -->
+<section class="signoff-section">
+  <div class="signoff-inner">
+    <p class="disclaimer-text">The results shared on this page are from real Impact Academy members who participated in the full program. Individual results vary based on starting point, niche, effort level, consistency, and time invested. These outcomes are not typical and should not be interpreted as a guarantee. Impact and income grow together &mdash; but they require work.</p>
+    <h2 class="signoff-headline">Your call is booked.</h2>
+    <p class="signoff-body">We've got your spot saved. Check your inbox for the confirmation email &mdash; it'll have the call details and a link back here in case you want to rewatch anything before we meet.</p>
+    <p class="signoff-body">We'll see you soon.</p>
+    <p class="heart">&#128153;</p>
+    <p class="signoff-name">&mdash; Daniel &amp; The Impact Team</p>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
-<div class="bg-[#0D0D0D] py-6 px-4 text-center">
-  <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" class="h-6 mx-auto mb-3 opacity-50">
-  <p class="text-white/30 text-xs">© 2026 Impact Me All. Results shared by real program participants vary based on niche, starting point, effort, and time invested. Not a guarantee of income.</p>
-</div>
+<footer>
+  <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact">
+  <p>&copy; 2026 Impact Me All. Results vary based on niche, starting point, effort, and time invested. Not a guarantee of income.</p>
+</footer>
 
+<script>lucide.createIcons();</script>
 </body>
 </html>

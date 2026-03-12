@@ -3,161 +3,361 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Training for Yoga Teachers — Impact</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Free Training — Impact x Daniel Rama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
-  * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
-    margin: 0; padding: 0;
-    background: #3D1A8C;
-  }
-  .grad-bg {
-    min-height: 100vh;
-    background: radial-gradient(ellipse at 60% 0%, #7B2FFF 0%, #4B0DC8 30%, #2D0A8A 60%, #1A0660 100%);
-  }
-  .glass-form {
-    background: rgba(255,255,255,0.10);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.20);
-    border-radius: 20px;
-  }
-  .input-field {
-    width: 100%;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.20);
-    border-radius: 12px;
-    padding: 14px 18px;
-    color: white;
-    font-size: 15px;
-    font-family: inherit;
-    transition: all 0.2s;
-    outline: none;
-  }
-  .input-field::placeholder { color: rgba(255,255,255,0.45); }
-  .input-field:focus {
-    border-color: rgba(255,255,255,0.5);
-    background: rgba(255,255,255,0.13);
-  }
-  .btn-cta {
-    background: #FAD825;
-    color: #1A1A1A;
-    font-weight: 900;
-    font-size: 15px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 12px;
-    padding: 16px 24px;
-    width: 100%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: inherit;
-    transition: all 0.2s;
-  }
-  .btn-cta:hover {
-    background: #fce44a;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(250,216,37,0.35);
-  }
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.20);
-    border-radius: 100px;
-    padding: 6px 14px;
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.80);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .headline-yellow { color: #FAD825; }
-  .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.60);
-    font-size: 13px;
-    font-weight: 500;
-  }
-  .stat-dot {
-    width: 6px; height: 6px;
-    background: #FAD825;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  @media (max-width: 640px) {
-    .hero-headline { font-size: 32px !important; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --purple-deep: oklch(0.22 0.18 285);
+  --purple-mid: oklch(0.35 0.26 280);
+  --purple-bright: oklch(0.47 0.31 278);
+  --yellow: #FAD825;
+  --green: #1BEBA0;
+  --white: #FFFFFF;
+  --white-60: rgba(255,255,255,0.60);
+  --white-35: rgba(255,255,255,0.35);
+  --white-12: rgba(255,255,255,0.12);
+  --white-20: rgba(255,255,255,0.20);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 100px;
+}
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body {
+  font-family: var(--font);
+  background: oklch(0.22 0.18 285);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.bg-hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% -10%, oklch(0.55 0.32 275) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at -10% 80%, oklch(0.30 0.22 300) 0%, transparent 55%),
+    linear-gradient(160deg, oklch(0.28 0.22 285) 0%, oklch(0.18 0.16 290) 50%, oklch(0.14 0.12 295) 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle noise texture */
+.bg-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+/* Decorative orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.orb-1 { width: 400px; height: 400px; background: oklch(0.50 0.28 270 / 0.25); top: -100px; right: -80px; }
+.orb-2 { width: 300px; height: 300px; background: oklch(0.40 0.30 300 / 0.20); bottom: 0; left: -60px; }
+
+/* Nav */
+.nav { position: relative; z-index: 10; padding: 24px 24px 0; display: flex; justify-content: center; }
+.nav img { height: 30px; }
+
+/* Main content */
+.hero-content {
+  position: relative; z-index: 10;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 44px 24px 64px;
+  text-align: center;
+}
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white-12);
+  border: 1px solid var(--white-20);
+  border-radius: var(--radius-full);
+  padding: 7px 16px;
+  font-size: 11px; font-weight: 700;
+  color: var(--white-60);
+  letter-spacing: 0.10em; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.eyebrow-dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
+
+/* Headline */
+.headline {
+  font-size: clamp(34px, 6vw, 52px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.headline span { color: var(--yellow); }
+
+/* Sub */
+.subhead {
+  font-size: 17px; line-height: 1.65;
+  color: var(--white-60);
+  margin-bottom: 40px;
+  max-width: 520px;
+  margin-left: auto; margin-right: auto;
+}
+
+/* Form card */
+.form-card {
+  background: var(--white-12);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--white-20);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 22px;
+  max-width: 440px;
+  margin: 0 auto 32px;
+}
+.input-wrap {
+  position: relative; margin-bottom: 10px;
+}
+.input-icon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--white-35); pointer-events: none; width: 16px; height: 16px;
+}
+input[type=text], input[type=email], input[type=tel] {
+  width: 100%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--white-20);
+  border-radius: var(--radius-md);
+  padding: 13px 14px 13px 40px;
+  color: var(--white);
+  font-size: 14px; font-family: var(--font); font-weight: 500;
+  outline: none; transition: all 0.18s;
+}
+input::placeholder { color: rgba(255,255,255,0.38); }
+input:focus { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.11); }
+.btn {
+  width: 100%; margin-top: 6px;
+  background: var(--yellow);
+  color: #1a1a1a;
+  font-family: var(--font); font-size: 14px; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border: none; border-radius: var(--radius-md);
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: all 0.18s;
+}
+.btn:hover { background: #fce44a; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(250,216,37,0.40); }
+.btn:active { transform: translateY(0); }
+.privacy {
+  font-size: 11px; color: rgba(255,255,255,0.28); margin-top: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+
+/* Stats */
+.stats {
+  display: flex; justify-content: center; align-items: center;
+  gap: 6px; flex-wrap: wrap;
+}
+.stat { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; color: var(--white-60); }
+.stat-dot { width: 5px; height: 5px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+.divider { color: rgba(255,255,255,0.15); font-size: 18px; line-height: 1; }
+
+/* BELOW FOLD */
+.section-light { background: #F5F4EE; padding: 80px 24px; }
+.section-dark { background: oklch(0.14 0.10 285); padding: 80px 24px; }
+.container { max-width: 720px; margin: 0 auto; }
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: oklch(0.47 0.31 278); margin-bottom: 14px;
+}
+.section-title { font-size: clamp(24px, 4vw, 36px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: #0D0D0D; margin-bottom: 10px; }
+.section-title-light { color: var(--white); }
+.section-sub { font-size: 16px; color: #666; line-height: 1.6; margin-bottom: 40px; }
+.section-sub-light { color: var(--white-60); }
+
+/* Bullet cards */
+.bullets { display: flex; flex-direction: column; gap: 12px; }
+.bullet-card {
+  background: white;
+  border: 1px solid rgba(97,0,255,0.10);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  border-left: 3px solid oklch(0.47 0.31 278);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: all 0.2s;
+}
+.bullet-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(97,0,255,0.12); }
+.bullet-title { font-size: 16px; font-weight: 800; color: #111; margin-bottom: 5px; }
+.bullet-sub { font-size: 14px; color: #666; line-height: 1.55; }
+
+/* Proof cards */
+.proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.proof-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  transition: all 0.2s;
+}
+.proof-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-3px); }
+.proof-quote { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.65; font-style: italic; margin-bottom: 16px; }
+.proof-author { font-size: 13px; font-weight: 700; color: var(--white); }
+.proof-context { font-size: 11px; color: var(--white-35); margin-top: 3px; line-height: 1.4; }
+
+/* Footer */
+footer { background: #0D0D0D; padding: 28px 24px; text-align: center; }
+footer img { height: 22px; opacity: 0.35; margin-bottom: 12px; }
+footer p { font-size: 11px; color: rgba(255,255,255,0.25); line-height: 1.6; max-width: 580px; margin: 0 auto; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.anim-1 { animation: fadeUp 0.6s ease-out both; }
+.anim-2 { animation: fadeUp 0.6s 0.12s ease-out both; }
+.anim-3 { animation: fadeUp 0.6s 0.24s ease-out both; }
+.anim-4 { animation: fadeUp 0.6s 0.36s ease-out both; }
+.anim-5 { animation: fadeUp 0.6s 0.48s ease-out both; }
 </style>
 </head>
 <body>
-<div class="grad-bg">
+
+<div class="bg-hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
   <!-- NAV -->
-  <div style="padding: 20px 24px; display: flex; justify-content: center;">
-    <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact" style="height: 28px;">
-  </div>
+  <nav class="nav">
+    <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact">
+  </nav>
 
   <!-- HERO -->
-  <div style="max-width: 680px; margin: 0 auto; padding: 24px 24px 60px; text-align: center;">
-
-    <!-- EYEBROW -->
-    <div style="margin-bottom: 24px;">
-      <span class="eyebrow">
-        <span style="color:#FAD825;">&#9654;</span> Free Training
-      </span>
+  <div class="hero-content">
+    <div class="anim-1">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Free Video Training for Yoga Teachers
+      </div>
     </div>
 
-    <!-- HEADLINE -->
-    <h1 class="hero-headline" style="font-size: 48px; font-weight: 900; line-height: 1.10; color: white; margin: 0 0 20px; letter-spacing: -0.02em;">
+    <h1 class="headline anim-2">
       The 3-Pillar System Helping Yoga Teachers Escape the $30/Class Grind and Build
-      <span class="headline-yellow"> $5K&ndash;$20K/Month Businesses</span>
+      <span> $5K&ndash;$20K/Month Online</span>
     </h1>
 
-    <!-- SUBHEADLINE -->
-    <p style="font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0 0 36px; font-style: italic;">
-      Without a huge following, without becoming an influencer, and without selling your soul online.
+    <p class="subhead anim-3">
+      Without a massive following, without becoming an influencer, and without sacrificing the teaching you love.
     </p>
 
-    <!-- FORM CARD -->
-    <div class="glass-form" style="padding: 28px; max-width: 480px; margin: 0 auto 28px;">
+    <!-- FORM -->
+    <div class="form-card anim-4">
       <form action="vsl.html" method="GET">
-        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px;">
-          <input class="input-field" type="text" name="fname" placeholder="First Name" required>
-          <input class="input-field" type="email" name="email" placeholder="Email Address" required>
-          <input class="input-field" type="tel" name="phone" placeholder="Phone Number" required>
+        <div class="input-wrap">
+          <i data-lucide="user" class="input-icon"></i>
+          <input type="text" name="fname" placeholder="First name" required>
         </div>
-        <button type="submit" class="btn-cta">
-          Watch the Free Training Now
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="input-wrap">
+          <i data-lucide="mail" class="input-icon"></i>
+          <input type="email" name="email" placeholder="Email address" required>
+        </div>
+        <div class="input-wrap">
+          <i data-lucide="phone" class="input-icon"></i>
+          <input type="tel" name="phone" placeholder="Phone number" required>
+        </div>
+        <button type="submit" class="btn">
+          Watch the Free Training
+          <i data-lucide="arrow-right" style="width:16px;height:16px;stroke-width:2.5;"></i>
         </button>
       </form>
-      <p style="font-size: 12px; color: rgba(255,255,255,0.35); margin: 10px 0 0; text-align: center;">
-        Your information is safe. We respect your privacy and will never spam you.
+      <p class="privacy">
+        <i data-lucide="lock" style="width:11px;height:11px;"></i>
+        100% private &mdash; we never share your information
       </p>
     </div>
 
-    <!-- STATS BAR -->
-    <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
-      <div class="stat-item">
-        <span class="stat-dot"></span>
-        1,038+ yoga teachers served
+    <!-- STATS -->
+    <div class="stats anim-5">
+      <div class="stat"><span class="stat-dot"></span> 1,038+ teachers served</div>
+      <span class="divider">&middot;</span>
+      <div class="stat"><span class="stat-dot"></span> 47 countries</div>
+      <span class="divider">&middot;</span>
+      <div class="stat"><span class="stat-dot"></span> Free &mdash; no catch</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="section-light">
+  <div class="container">
+    <p class="section-label">Inside the training</p>
+    <h2 class="section-title">Here's exactly what Daniel reveals:</h2>
+    <p class="section-sub">No fluff. No theory. Just the system that took Daniel from $500/month to $20K+.</p>
+
+    <div class="bullets">
+      <div class="bullet-card">
+        <p class="bullet-title">&rarr; Why having more followers won't make you more money</p>
+        <p class="bullet-sub">Daniel had 200,000+ followers and was still broke. Discover what actually drives income for yoga teachers in 2026 &mdash; and it's not your follower count.</p>
       </div>
-      <div class="stat-item">
-        <span class="stat-dot"></span>
-        47 countries worldwide
+      <div class="bullet-card">
+        <p class="bullet-title">&rarr; The "Direction Positioning" strategy: choose your lane and grow into it</p>
+        <p class="bullet-sub">Not "find your niche" &mdash; that advice sounds right but doesn't work. This is the first thing Daniel teaches every teacher he works with, and the reason Debbie went from 1,700 to 200,000 followers.</p>
+      </div>
+      <div class="bullet-card">
+        <p class="bullet-title">&rarr; The Content Modeling method that builds an audience of buyers</p>
+        <p class="bullet-sub">You don't need to create content from scratch. Katrin used this to grow from 1K to 14K followers and add $5&ndash;10K/month &mdash; in 4&ndash;6 months, through Impact Academy, pre/postnatal yoga niche.</p>
+      </div>
+      <div class="bullet-card">
+        <p class="bullet-title">&rarr; Why mid-ticket pricing ($200&ndash;$500) is the sweet spot right now</p>
+        <p class="bullet-sub">High enough to make real money. Accessible enough that buyers don't hesitate. David generated $33,371 in 5 days from a single $299 offer &mdash; Ashtanga yoga teacher, 2+ years in Impact Academy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="section-dark">
+  <div class="container">
+    <p class="section-label" style="color:rgba(250,216,37,0.8);">Real teachers. Real results.</p>
+    <h2 class="section-title section-title-light" style="margin-bottom:10px;">1,038+ yoga teachers have used this system.</h2>
+    <p class="section-sub section-sub-light">These are real outcomes from real teachers who followed the system.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <p class="proof-quote">"I went from 1,700 followers to over 200,000. More importantly &mdash; I built a real business around something I'd always taught but never knew how to turn into income."</p>
+        <p class="proof-author">Debbie M.</p>
+        <p class="proof-context">Back-pain relief yoga &middot; Impact Academy &middot; starting from 1.7K followers</p>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"I was making $150/month and was about to give up entirely. Twelve months later, I'd reached 20,000 followers and done over $17,000 in sales."</p>
+        <p class="proof-author">Jenelle L.</p>
+        <p class="proof-context">Yoga teacher &middot; Impact Academy &middot; 12 months &middot; full program</p>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"My first month using the Hybrid Coaching system: $19,600. Recurring. I'd never had a result like that in my life."</p>
+        <p class="proof-author">Miles M.</p>
+        <p class="proof-context">Handstand coach &middot; Impact Academy &middot; first month after full implementation</p>
       </div>
     </div>
 
+    <div style="text-align:center; margin-top:40px;">
+      <a href="vsl.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:#1a1a1a;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;border-radius:var(--radius-md);padding:15px 32px;text-decoration:none;transition:all 0.18s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(250,216,37,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        Watch the Free Training
+        &nbsp;&rarr;
+      </a>
+      <p style="font-size:11px;color:var(--white-35);margin-top:10px;">Results vary based on starting point, niche, effort, and time invested.</p>
+    </div>
   </div>
-</div>
+</section>
+
+<footer>
+  <img src="https://cdn.prod.website-files.com/66cc1d45c20949db0bab2a5d/66cc265677b03b09e00cbeeb_Impact.svg" alt="Impact">
+  <p>&copy; 2026 Impact Me All. Results shared by real program participants vary based on niche, starting point, effort, and time invested. Not a guarantee of income.</p>
+</footer>
+
+<script>lucide.createIcons();</script>
 </body>
 </html>
